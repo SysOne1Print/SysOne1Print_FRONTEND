@@ -1,0 +1,253 @@
+FIX - 25/07/24
+
+Cadastro item (/criar-produto)
+  Adicionado marcação nas opções que são obrigatoria -> ✅
+	Step 1 -> ✅
+		Tipo do Item: -> ✅
+			Adicionar o campo Unidade -> ✅
+
+		Categoria de item: -> ✅
+			Impressão DTF -> ✅
+				Atentar as INPUTS para que sejam tratadas como valor (R$) ao envés de "quantidade" conforme está/zZ  -> ✅
+
+			Impressão DTF UV -> ✅
+				É um serviço unitário (não pode ser fracionado) "Serviço especial", vai ter que ter um item novo nesse item auqi//Zz-> ✅
+
+				Appends de "Impressão DTF UV" -> ✅
+					[input]Brilho -> ✅
+					[input]Fosco -> ✅
+
+				(remover: Substrato, Premium, Clássica e Economica)-> ✅
+
+				Atenção para os valores (R$) nas inputs-> ✅
+
+			Impressão Sublimática ->
+        papel tratado 64g
+
+        papel Monolúcido Normal
+
+			Tinta sublimática -> ✅
+				Modelo
+					[
+						Linha T-74
+						Linha T-46
+					]
+				COR
+					[
+						Ciano - R$
+						Magenta - R$
+						Amarelo - R$
+						Preto HDK - R$
+					]
+
+			Tinta DTF -> ✅
+				Modelo
+					[
+						Wiprime
+							COR
+							[
+								Ciano - R$
+								Magenta - R$
+								Amarelo - R$
+								Preto HDK - R$
+								Branco - R$
+								Clear - R$
+							]
+						Wiprime UV
+							COR
+							[
+								Ciano - R$
+								Magenta - R$
+								Amarelo - R$
+								Preto HDK - R$
+								Branco - R$
+								Verniz - R$
+								Clear - R$
+							]
+					]
+
+			Tinta Poletileno -> ✅
+				Modelo
+					[
+						Fosco
+						Brilhante
+					]
+
+			Camisetas tradicional -> ✅
+				Tecido -> ✅
+				[
+					Algodão, Malha fira, Dri fit, Poliester -> ✅
+				]
+				Tamanhos [
+					P, M, G, GG, XG, XXG, G1, G2, G3 -> ✅
+				]
+				COR -> ✅
+				[
+					Pré-definidas: -> ✅
+						Preto, Branco, Vermelho ...ColunaAuto/ -> ✅
+					Incrementar cor -> ✅
+						-Quando selecionado, abre um input text abaixo para que incremente na coluna das cores pré-definidas.
+				]
+
+			Substrato de impressão - -> ✅ (Quantidade em estoque)
+				Quando os rádios forem selecionados, devem brotar novos para especificação das dimensões, sendo:
+
+				Filme DTF  -> ✅
+				[
+					Tipo
+					[
+						Brilho
+						Fosco
+					]
+
+					Tamanho
+					[
+						30cm
+						60cm
+					]
+				]
+
+				Papel sublimático -> ✅
+				[
+					Tipo
+					[
+						Monolúcido
+						Tratado
+					]
+
+					Tamanho
+					[
+						1.60mts
+					]
+
+					Metro
+					[
+						250mts
+						300mts
+						350mts
+					]
+
+				]
+
+				Poliamida TPU (Cola TPU) -> ✅
+				[
+					Peso
+					[
+						1Kg
+						5kg
+					]
+				]
+
+
+  Step 4 -> ✅
+    Preço de compra un. e Custo de compra un. viram um input só. (Preço de Compra) -> ✅
+
+    Adição de um "Ger. Deposito" (para criar estoque e tal, tipo o do fornecedor) -> ✅
+
+    Alterar o texto "minimo e maximo" para: "Estoque min, e estoque max. -> ✅
+
+    O cálculo de redução do valor "máximo" vem a partir do consumo das vendas, no caso do Filme;
+      Os inputs devem ser alterados de UN para Metros quando a categoria for IMPRESSÃAO lá no step1:
+        Input: "Quantidade", "Estoque MIN e Estoque Max" -> ✅
+
+  Step 5 -> ✅
+    Função real sobre "% tributos" -> ✅
+
+    alteração do tipo do input "Grupo de produtos" para <select> -> ✅
+
+  step 6  -> ✅
+    Reorganizar a preview dos produtos -> ✅
+=============================================================================================================
+
+
+PAGAMENTO.html
+	Quando marcado "Pagamento parcial" -> ✅
+		Abrir abaixo da checkbox uma input para informar o valor de ENTRADA -> ✅
+
+		~Esse valor de entrada, vai alimentar a tabela de gestão do financeiro, para que informe lá o "Valor recebido" constando se foi "Entrada" ou "Segundo/Terceiro parâmetro a definir um nome" -> ✅
+
+
+	Re-organizar a lógica visual de pagamento
+		[] Quando adicionado o vlaor no campo de entrega, o calculo do valor do pedido deve sofrer a alteração. -> ✅
+        - talvez precise de fazer um esquema de alterar o valor ja posto
+
+		[] Quando o valor de entrega for definido, ele deve ser uma apêndice ao valor total, separando os valores do faturamento. -> ✅
+			~Essa ação deve alimentar a tabela do Financeiro, constando lá o valor do pedido e o valor de entrega (caso exista no pedido) -> ✅
+
+		[] Timer para próxima qrCode a ser gerada, SYS.PIX -> ✅
+			( esse timer deve orientar o usário, para que "impeça" de gerar uma requisição falsa para o Banco) -> ✅
+
+	~~ Reorganização do fluxo das Checkbox/Radio:
+		check.Entrega -> ✅
+		---------
+		check.Parcial -> ✅
+		---------
+		radio.Pagamento -> ✅
+		---------
+		resultado no Status -> ul.Fiscal
+
+	Adição de um botão CONLUIR para que leve o pedido na Tela de PEDIDOS do vendedor -> ✅
+		A ação de submit desse botão, carrega a página de pedidos do vendedor, junto a mensagem.tip no canto superior direito de sucesso' -> ✅
+
+
+1 - alterar orçamento
+- Testar Desconto por itens -> ✅
+- Testar Desconto no valor total -> ✅
+- Corrigir Select de pesquisa -> ✅
+- Limpar estado do pinia com o carrinho de produtos -> ✅
+- produtos alterador no carrinho -> ✅
+ : camiseta -> ✅
+ : Tinta DTF -> ✅
+ : Tinta sublimatico -> ✅
+ : Tinta Politileno -> ✅
+ : substrato impressão - tinta Poliamida -> ✅
+ : substrato impressão - papel sublimatico -> ✅
+ : substrato impressão - filme dtf -> ✅
+- Corrigir delete todos os produtos -> ✅
+- Input de quantidade Politileno + (Calculo de total do valor no caixa) -> ✅
+- Input de quantidade Tinta DTF + (Calculo de total do valor no caixa) -> ✅
+- Input de quantidade tinta sublimatico + (Calculo de total do valor no caixa) -> ✅
+
+2 - criar orçamento/alterar produto do carrinho
+- Testar Desconto por itens -> ✅
+- Testar Desconto no valor total -> ✅
+
+- produtos alterador no carrinho -> ✅
+ : camiseta -> ✅
+ : Tinta DTF -> ✅
+ : Tinta sublimatico -> ✅
+ : Tinta Politileno -> ✅
+ : substrato impressão - tinta Poliamida -> ✅
+ : substrato impressão - papel sublimatico -> ✅
+ : substrato impressão - filme dtf -> ✅
+- Corrigir Select de pesquisa -> ✅
+- Limpar estado do pinia com o carrinho de produtos -> ✅
+- Corrigir delete todos os produtos -> ✅
+- Input de quantidade Politileno + (Calculo de total do valor no caixa) -> ✅
+- Input de quantidade Tinta DTF + (Calculo de total do valor no caixa)  -> ✅
+- Input de quantidade tinta sublimatico + (Calculo de total do valor no caixa)  -> ✅
+
+3 - Pagamento tela final
+
+- Atualizar carteira one1 -> ✅
+
+
+Orçamento 2/3 -> ✅
+	Camisetas -> ✅
+		Espaçar as <option> valores a serem exibidos -> ✅
+			Param \alt255 Estoque disponivel -> ✅
+			exemplo: "Algodão felposo	(Em estoque: 255) -> ✅
+
+[Pagina] - Estoque de Produtos
+-------------------------------------------------
+INVENTÁRIO -> ✅
+	Estoque de produtos -> ✅
+		A tabela compõem: -> ✅
+			Código -> ✅
+			Nome -> ✅
+-------------------------------------------------
+
+-------------------------------------------------
+DASH. VENDEDOR
+	Vamos trampar as informações dessa tela, req importante/Zz
+-------------------------------------------------

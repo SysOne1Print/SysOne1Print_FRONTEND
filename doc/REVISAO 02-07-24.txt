@@ -1,0 +1,38 @@
+Revisão - 18/07/2024
+
+/// ultima coisa
+[ INVENTÁRIO ] ->
+	Cadastro de itens: ->
+			Step 5 ->
+				Fazer funcionar a modal de "Gerir grupo de produtos".-> ⚠️(Falta adicionar as funções)
+
+Produção -> (Deixar Por Ultimo)
+	FIX ->
+		Correções que já precisam serem feitas (Telas prontas)
+			Revisar em conjunto//
+
+		Aplicar CHECK Box para seleção dos itens da tabela nas etapas:
+			1 - Pedidos aprovados (Para múltipla seleção)
+			2 - Arte final (Para múltipla seleção)
+			3 - Produção (já tem, segue como exemplo)
+
+		Setp 1: Pedidos aprovados
+		Setp 2: Arte Final ->
+			Precisamos dar execução naquele gerenciamento dos arquivos nos diretórios//
+
+			/A partir daqui deverá ser informado o famoso "SERIAL" (quando for movido para produção)
+				que acompanhará o pedido para: Produção, Controle de Qualidade, Expedição e também financeiro /zZ
+
+//Fim [Produção]
+
+#MamaNoisJoreel
+
+(Visual coisas do Pablo)
+	Meus Pedidos ->
+		[VISUAL]
+			As linahs da tabela, devem obter uma background referente ao status, sendo:
+				Verde 	: Em Produção ????
+				Amarelo : Em orçamento ????
+				Azul	: Finalizado ????
+				Branco	: Entregue ????
+				Vermelho: Cancelados ????

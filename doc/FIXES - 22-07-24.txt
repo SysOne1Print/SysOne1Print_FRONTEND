@@ -1,0 +1,25 @@
+Fixes dia 22/07/24
+
+cadProd.html ->
+	[*] Alterar a altura máxima da visualização do formulario de cadastro de produtos para a altura da viewport (fazendo preencher de acordo com a VH) -> ✅
+	[*] Corrigir para a quebra de linha na largura da step final de preview dos produtos'
+  (Tá em nowrap, fugindo da contentbox); ->⚠️(Perguntar ao pablo )
+	[*] Modal gerenciar grupo de produtos preFix colunas estão quebrando a linha reduzir para col-7 e col-4 , deixando vaga a do meio. -> ✅
+
+orcamento.html ->
+	step 1/3
+		[*] aumentar o limite da page-content para 75% ou 100% (w-75 ou w-100)
+
+		[*] Modal camisa
+			corrigir a <option> da <select> TAMANHO
+				trazer em between a quantidade em estoque de cada tamanho disponível!
+			// FIX: Infelizmente, option não aceitou o between, mas foi anexado em <span> o número de disponíveis'
+
+	Step 2/3 de preview do orçamento,
+		[*] a lista de itens no carrinho, o nome do item deve receber nowrap para que não confunda entre itens existentes;
+
+		// removida a classe ".row" da div:
+			<div class="d-flex align-self-center ExisteValorItemCliente">
+
+	Step 3/3
+		[*] Fazer o "ANEXAR ARQUIVOS" ser exibido de acordo com a resposta de uma <select> para que CADA objeto do carrinho, traga seus anexos referentes.

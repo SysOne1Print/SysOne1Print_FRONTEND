@@ -1,0 +1,43 @@
+.carrinhoPreviewIMG {
+  width: 40px;
+  height: 40px;
+}
+
+.valorAnterior {
+  text-decoration: line-through;
+  color: gray !important;
+  font-size: 9pt;
+}
+
+.valorAtual {
+  color: rgb(22, 63, 6) !important;
+  font-size: 11pt;
+}
+
+.valorItemCliente {
+  min-width: 100px;
+  height: 30px;
+  background-color: rgb(132, 145, 132);
+  color: #dfddcf;
+  text-align: center;
+  line-height: 16.50px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid rgba(255, 255, 255, 1);
+  outline: 1px dashed rgba(132, 145, 132, .3);
+  transition: 300ms ease-in-out;
+  cursor: default;
+}
+
+.valorItemCliente:hover {
+  padding: 5px 10px;
+  filter: brightness(110%);
+}
+
+.subTotal {
+  font-size: 13pt;
+}
+
+.total {
+  font-size: 15pt;
+}

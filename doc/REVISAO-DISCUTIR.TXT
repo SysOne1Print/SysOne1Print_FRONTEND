@@ -1,0 +1,25 @@
+Revisão - 18/07/2024
+
+[ INVENTÁRIO ] ->
+	Visualização de Inventário ->
+
+		Fix funcionalidades():
+			Botão.print ->
+				Abre uma página em branco apenas com o conteúdo selecionado;
+
+//Fim [Inventário]
+
+[GER. VENDAS]
+	Frente de Caixa 2/3 (Selecionar produto/Carrinho) ->
+			[Discutir possibilidade]->⚠️ (discutir possibilidade)
+				Botão copiar orçamento:->⚠️ (discutir possibilidade)
+					Se for possível enviar uma template com os dados a serem "copiados" em específico;->⚠️ (discutir possibilidade)
+
+	Frente de Caixa 3/3 (Orçamento) ->
+
+				Aplicar a nova upload discriminando:->⚠️ (Esperar para decidir um layout diferente)
+					Nome do ITEM/PRODUTO ou SERVIÇO
+					Data e Horário de Upload
+					nos itens anexados.
+					Adicionar um "Load" para arquivos que possam ser anexados, que pesariam mais que 300mb, o load seria um indicador de que tudo está sendo carregado e deverá informar o sucesso ou erro da ação.
+//FIM [GER. Vendas]

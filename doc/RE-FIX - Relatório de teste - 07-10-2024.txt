@@ -1,0 +1,209 @@
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Relatório de testes, para FIX da R.1 ~> Produção
+FIX [Joreel] -> Teste 1 sobre as FIXes.
+
+LEGENDA:
+	✅ 	= FIX
+	🆗 	= Testado
+	🚫 	= Descarte de ação para fix/teste
+	⚠️ 	= Disposição a comunicação, retorno ou conflitos
+	🎈	= Refatorar/Revisão do dev. para FIX (Erro persitente)
+
+/vendedor/orcamento-initial
+
+	Orçamento 2/3
+    quando tem 2 itens no carrinho não abre a modal de editar
+
+		Meu carrinho I want to know how far my wizard will go. Wizahar
+
+			{
+				Adicionei um item ao carrinho: Tinta sublimática - Linha T-74; -> ✅
+				Editei o item e apliquei desconto em R$ de R$20,00 (Valor que cadastrei foi de R$70,00) - (Não aplica o desconto da modal); -> ✅
+				Apliquei e quando verifiquei os valores do carrinho, estavam todos nos valores iniciais. -> ✅
+					-Depois que sofri o erro de redireção da rota (descrito na linha: 170) os R$20,00 de desconto foram aplicados quando inseri novamente o item no carrinho /Zz -> ✅
+			} -> ⚠️🎈 Não está sendo aplicado o desconto.. -> ✅
+					  PRINT: https://prnt.sc/Vdp07JIpgZ36 ~> https://prnt.sc/sY2O5-vSycZg -> ✅
+
+
+			(O obtão de desconto geral do carrinho, não está habilitado para teste) -> ✅ -> 🆗 (O desconto geral so fica disponivel quando nao existe nenhum tipo de desconto aplicado no carrinho)
+				O botão de desconto geral -> ⚠️🎈 aplicou o valor que eu defini (R$20,00) e retornou o valor total do carrinho em R$50,00 (o mesmo item testado) porém ao confirmar o pedido não constou o desconto! -> ✅
+				PRINT: https://prnt.sc/w3ADq7Qchq12 ~> https://prnt.sc/DWMMZCzXdUjw -> ✅
+
+
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	~ 16/09/24 Continuando testes .. rota: vendedor/orcamento-middle/
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	Grade de exibição dos items:-> ✅ -> ⚠️🆗 ( Somente produtos novos vai funcionar, pois era um erro do back end)
+		Impressão sublimática está caducando suas opções "Definir qualidade", deixando de exibir as options:-> ✅ -> ⚠️🎈( Somente produtos novos vai funcionar, pois era um erro do back end)
+			{ -> ⚠️🎈 Erro persiste-> ✅ -> ⚠️🆗 ( Somente produtos novos vai funcionar, pois era um erro do back end)
+						PRINT: https://prnt.sc/3sm2SqhL5V4Q
+			}
+
+			Premium, Clássica e Econômica -> ✅ -> 🆗( Somente produtos novos vai funcionar, pois era um erro do back end)
+			(que foram definidas ao cadastrar o produto) e que servem para obter o valor final do item de acordo com essas options. Carregando consigo o valor final "0". -> ⚠️ (Falta corrigir) -> ⚠️🆗( Somente produtos novos vai funcionar, pois era um erro do back end)
+
+			O mesmo acontece com a edição do item uma vez inserido no carrinho (editar diretamente do carrinho) também está caducando as options em "Definir qualidade" e retornando seu valor em 0.( Somente produtos novos vai funcionar, pois era um erro do back end)
+
+			PRINT: https://prnt.sc/muUS90fFXYsA -> ✅ ( Somente produtos novos vai funcionar, pois era um erro do back end)
+
+	............................................................................................................
+
+	Meu carrinho:-> ✅ (Corrigido agora fica sem o valor zero no input)
+		NENHUM item pode ser inserido no carrinho com uma quantidade NULA===0! Seu mula! Aplica a contagem em 1 e não 0, nubnubnubnub viadoviadoviado pélapélaparei-> ✅ -> (Corrigido agora fica sem o valor zero no input)
+			{ -> ⚠️🎈 A contagem ainda inicia em 0. (a quantidade minima é 1...)-> ✅ (Corrigido agora fica sem o valor zero no input)
+				PRINT: https://prnt.sc/BTrIBpAefg1L-> ✅ (Corrigido agora fica sem o valor zero no input)
+			}
+
+		Itens que recebem mais que UMA unidade, deve-se apresentar como o tanto de itens desse mesmo tipo existem no carrinho.-> ✅ -> (Foi adicionado umas subs legendas para as informações e quantidade)
+			Erro meu Jorel, por hora pode usar "1x, 2X, 3x" no nome do produto mas o certo é trazer uma tag.-> ✅ -> (Foi adicionado umas subs legendas para as informações e quantidade)
+				Caso queira inserir a tag, jogue dentro do-> ✅ -> (Foi adicionado umas subs legendas para as informações e quantidade)
+
+	............................................................................................................
+
+	Desconto: -> ⚠️ (Da para fazer sim mas levaria um tempinho, acho bom deixar por ultimo pois existe muitos lugares com desconto)
+		Modal desconto (Geral do Meu Carinho) pode existir um botão de "Resetar desconto" para remover o efeito /Zz -> ⚠️ (Da para fazer sim mas levaria um tempinho, acho bom deixar por ultimo pois existe muitos lugares com desconto)
+		{ -> ⚠️🎈 Não, apenas remove o desconto geral, os itens permanecem. }
+
+		Botão "DESCONTO" que chama a modal de aplicar desconto (tanto individual, quanto desconto geral no carrinho nesse caso), -> ⚠️ (Da para fazer sim mas levaria um tempinho, acho bom deixar por ultimo pois existe muitos lugares com desconto)
+		{ -> ⚠️🎈 PRINT: https://prnt.sc/JrkRcv_wZcAP ~> Apenas um botão que remove o  desconto, jhow }
+
+		a opção "Percentual" está lidando com valores numéricos particionados .. deve-se comportar como porcentagem (talvez apenas no visual?)-> ✅ -> 🆗
+			Apenas para não ficar confuso pois o valor: "10,00" refere-se a 10%" e isso ja é funcional.-> ✅ -> 🆗
+
+		{ -> ⚠️🎈 Isso não foi resolvido.-> ✅ -> 🆗
+			Quando outro item é anexado ao carrinho, após aplicar o desconto geral em "Meu carrinho" os valores retomam sua origem, embora ainda exiba a porcentagem do desconto o total se dá sem a aplicação (ao menos visual) desse desconto..-> ✅ -> 🆗
+				Sendo obrigado a aplicação novamente do desconto referente.-> ✅ -> 🆗
+
+				(Acho que seria um comportamento normal, mas deve-se forçar que qualquer novo item a ser inserido respeite a regra do desconto geral aplicado uma vez. Tendo em vista que ele exibe o desconto e não aplica por ter um novo registro inserido, esse novo registro deve seguir a regra existente. precisa validar isso).-> ✅ -> 🆗
+			-------------------------------------------------- Re-teste:-> ✅ -> 🆗
+				PRINT: https://prnt.sc/sPNYSUYB6ueo-> ✅ -> 🆗
+		}-> ✅ -> 🆗
+
+		PRINT: https://prnt.sc/DvGc8w5wVFI- -> ⚠️ ( corrigir depois)-> ✅ -> 🆗
+
+		Então eu removi o que se teve valor em "0" (explicado na linha: 177) -> ⚠️ ( corrigir depois)-> ✅ -> 🆗
+			PRINT: https://prnt.sc/sKvjzoeWlh4Q -> ⚠️ ( corrigir depois)-> ✅ -> 🆗
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+	Rota: vendedor/finaliza-orcamento/
+	Orçamento 3/3 (Pagamento)
+
+		Col.Esquerda-> ✅
+
+			{ -> ✅ Nada mudou, ao "salvar alterações" e dar um "F5" a observação some.-> ✅
+				Obsrvação-> ✅
+					As observações quando compostas, não estão sendo aplicadas.-> ✅
+					PRINT 1: https://prnt.sc/WqZpY4f8HwmX-> ✅
+							 Note que: Print 1 contém SALVO uma observação descrita.-> ✅
+							 (perceba que o botão salvar já é o de concluir)-> ✅
+					PRINT 2: https://prnt.sc/92sQk8XXyjcK
+							 Note que: Print 2 é o "reload" da página=Pedido após essa observação existir e ter sido slava.-> ✅
+							 (Nada aconteceu.)
+			}
+
+			Arquivos anexados ->-> ✅
+				Os itens estão recebendo uma identificação na contagem, um tanto estranha...-> ✅ -> 🆗
+				Inicie uma contagem de acordo com o número de itens existentes no pedido.-> ✅ -> 🆗
+				(à partir de 1, pelo amor do zero.)-> ✅ -> 🆗
+
+				PRINT: vendedor/finaliza-orcamento/
+
+				~Em um outro teste: pedido(11)-> ✅ -> 🆗
+					Inseri ao carrinho um serviço: Impressão DTF e não anexei uma imagem,-> ✅ -> 🆗
+					quando fui carregar a imagem na rota atual: (desse tópico)-> ✅ -> 🆗
+						1 - Selecionei o item-> ✅ -> 🆗
+						2 - Cliquei na área de anexar-> ✅ -> 🆗
+						3 - Selecionei uma img.jpg -> ✅ -> 🆗
+						4 - Não aconteceu o esperado resultando a print.-> ✅ -> 🆗
+
+						PRINT: https://prnt.sc/D4ZB0d6Yx_pv -> ✅ -> 🆗
+
+					Conferir, sei que isso já estava funcional.-> ✅ -> 🆗
+						⚠️🎈 -> (aproveitando o tópico) aparentemente o "Selecionar arquivos" deixou de funcionar com o Clique->Seleção->Abrir -> ✅ -> 🆗
+							PRINT: https://prnt.sc/RTuC18Xt3JhK , https://prnt.sc/w9gt5OgiiqAF -> ✅ -> 🆗
+
+
+
+		Col.Direita
+
+			Pagamento parcial -> Marcado(checked) -> ⚠️ ( nao entendi)
+				O fluxo dele seria preencher o valor de entrada e então prosseguir para a opção de pagamento.
+
+				Opção de pagamento: ->⚠️ ( link de pagamento nao é PIX e diferente)
+					PIX (Link de pagamento) //Verificar isso com rebonnas (pablin) ->⚠️ ( link de pagamento nao é PIX e diferente)
+						Quando marcado, nada ainda acontece. Verificar a chamada da área pix. //Zz ->⚠️ ( link de pagamento nao é PIX e diferente)
+
+					// Conferir o funcionamento dos rádios.
+
+			Anexar o comprovante ->-> ✅ -> 🆗
+				Está sendo exibido, atentar na aparição apenas quando a opção for selecionada'-> ✅ -> 🆗
+				PRINT: https://prnt.sc/Qt-symru-t1B-> ✅ -> 🆗
+
+					Fluxo que solicitaria um comprovante:-> ✅ -> 🆗
+						- Pagamento parcial-> ✅ -> 🆗
+						- Link de pagamento-> ✅ -> 🆗
+
+						Não sendo nenhum desses marcados, não há necessidade de renderizar a dita cuja. //-> ✅ -> 🆗
+
+
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+	Rota: /finance  ->⚠️✅ (testa para mim quando tiver 2 tipos de itens no carrinho diferente, por exemplo camiseta e um dtf, quero ver o que acontece, pois geralmente esse item nao pode ser finalizado e so levado para produção por conta do dtf)
+	Quadro de gestão dos pedidos
+
+		Tenho muito que inserir um campo de horário nisso! Tá ficando confuso o consumo errado de tantos testes.-> ✅ -> 🆗
+			Isso em produção é um problema real! Então seria bom começar a pensar em um lugar de alterações e outro de uma exibição final que seja sempre recíproco a última das alterações existentes.-> ✅ -> 🆗
+
+
+		Nota e observações sobre os pedidos que serão sujeitos a cobranças:: ->⚠️ (TENDI FOI E NOTHING)
+			Nenhum item pode ser inferior que uma unidade.: ->⚠️ (TENDI FOI E NOTHING)
+			Nenhum item que deva conter anexo pode subir sem a existência desse anexo.: ->⚠️ (TENDI FOI E NOTHING)
+
+			(Essas verificações, deverão impedir que o pedido vá para a tabela do financeiro. Exigindo que sejam corrigidos os processos e nada possa ser cobrado com erro'): ->⚠️ (TENDI FOI E NOTHING)
+
+		TABELA Geral dos pedidos: -> ✅
+			Col.Ação: -> ✅
+				Detalhes ->
+					1 - Data de pagamento, está sendo preenchida... Sendo que não houve o pagamento.-> ✅ -> 🆗
+						(Embora gostei da piada, "01/01/1970" HAHA)-> ✅ -> 🆗
+
+					2 - Informamos que um pagamento pode ser parcial, -> ⚠️ -> 🆗 [DISPOSIÇÃO Dev.RELEASE 2 por REVISÃO]
+						porém não informo o quanto teve de entrada e se essa entrada foi paga ou quantas parcelas seriam e etc. os detalhes de parcialidade devem existir.
+						//Conversar com rebonnas (Desculpe, foi uma falha minha!! Excedendo a v1.)
+
+					3 - Tempo de trabalho, não sei se cabe essa linha aqui, eu imagino que antecipe a produção.. por essas ela já nem preenche nada né? -> ⚠️ -> 🆗
+					((alias trocar a url rrsrs) - Pior que nao preenche nada mesmo, acho que esse controle sairia de controle capaz, e ja existe a pagina do cliente que ele consegue olhar como está a produção) -> 🆗
+
+					4 - Se não existe uma imagem anexada a um pedido, e esse pedido contém um item que deveria carregar ao menos UMA imagem junto ao item... (volte à linha: 287.)-> ⚠️ -> 🎈(!)
+					(Acho que preciso refazer ou olhar mais a fundo, por que tem alguns orcamentos com arquivo e nao mostrou, vou Deixar pro final) - (Pode ter pedidos como camiseta sem imagem, o so com layout mesmo do desenho imagino) -> 🆗
+
+					//
+				Editar -> ✅
+					Deve herdar o comportamento descrito aos detalhes. -> ✅ -> 🆗
+
+        Finalizar -> ✅
+					Tá 99%! Faltou só ele atualizar o Status -> ✅ -> 🆗
+							(Acho que o cache ou o tempo de resposta deu uma tiltada e meio que aplicou o status de pagamento com um reload da tela um tempo depois//F5) -> ✅ -> 🆗
+
+		//TABELA
+	//finance
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+	Vou dar um pause no relatório.
+	Por favor, quando estiver pra iniciar as fixes de /finance (seguindo a ordem de relatos, se alterar o fluxo de fixes faça seu julgamento de tempo (0 à 100) sobre a conclusão pra que eu tenha uns 30% desse tempo de trazer a continuação dos testes e não te sobre-carregar. ;*
+
+	Faça-me o favor, via de mão drupaa!
+
+	16-09-24 							17:05 - Pablo
+	(24)25-09-24  						18:26 - Joreel
+	1ª Revisão pós fix:
+	26-09-2024							16:11 - Pablo
+	06-10-2024 (Encaminhado ao joreel)	21:08 - Pablo (Domingo)
+

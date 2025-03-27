@@ -1,0 +1,19 @@
+Tabela - review
+
+1 - Testar um por um o orçamento adicionando ele para rodar
+2 - Testar pausar o orçamento que está rodando -> ✅
+	-  bug -> -> ✅
+		- a lista atualiza errado -> ✅
+
+3 - Verificar tempo de conclusão de cada item ao adicionar ele no variado (não está acrescentando) -> ✅
+
+
+
+Tabela - features
+
+1 - Na coluna do Variado adicionar o tempo total para rodar todas as tarefas (obs: na mesma coluna do tempo) -> ✅
+2 - Adicionar um botão dentro da modal da engrenagem para remover o pedido do (modo variado) -> ✅
+3 - conclusão de tarefas automáticas ao clicar no botão do próximo e inicio da próxima no (modo variado)
+4 - dropdown dos modos variados -> ✅
+5 - remover o pedido rodando com checkbox "disabled", "agora so existe o disabled no pedido parado" -> ✅
+6 - Gerar nome automatico em modo variado -> ✅

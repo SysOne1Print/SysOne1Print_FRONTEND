@@ -1,0 +1,11 @@
+/* ONE tabelinha */
+.oneTable {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  height: auto;
+}/*# sourceMappingURL=tabelinha.css.map */

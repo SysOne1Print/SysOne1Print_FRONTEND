@@ -1,0 +1,573 @@
+@charset "UTF-8";
+/* Componente LAYOUT dos itens~>pedidos */
+* {
+  position: relative;
+  margin: 0 auto;
+  clear: both;
+}
+
+.gridCompLay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.gridCompLay .compLay {
+  min-width: 812px;
+  max-width: 812px;
+  min-height: 564px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 812px;
+  height: auto;
+  background-color: white;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  outline: 1px solid rgb(206, 206, 206);
+}
+.gridCompLay .compLay .cabessLay {
+  min-width: 100%;
+  max-height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  height: 100px;
+}
+.gridCompLay .compLay .cabessLay .item {
+  min-width: 160px;
+  min-height: 100px;
+  margin: 1px;
+  width: 100%;
+  height: 100px;
+  outline: 2px solid black;
+}
+.gridCompLay .compLay .cabessLay .item.logo {
+  width: 160px;
+  height: 100px;
+  background-color: lightgray;
+}
+.gridCompLay .compLay .cabessLay .item.logo .one1 {
+  background-color: pink;
+}
+.gridCompLay .compLay .cabessLay .item.numEnomePedidoVendedor {
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 2;
+  gap: 10px;
+  height: 100%;
+}
+.gridCompLay .compLay .cabessLay .item.numEnomePedidoVendedor .nomeVendedor {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+.gridCompLay .compLay .cabessLay .item.numEnomePedidoVendedor .nomeVendedor span {
+  max-width: calc(100% - 10px);
+  padding-left: 10px;
+}
+.gridCompLay .compLay .cabessLay .item.numEnomePedidoVendedor .nomeVendedor span.nome {
+  width: 100%;
+  height: 15px;
+  line-height: 15px;
+}
+.gridCompLay .compLay .cabessLay .item.numEnomePedidoVendedor .nomeVendedor span.defNome {
+  width: 100%;
+  height: 20px;
+  line-height: 30px;
+  font-size: 20px;
+}
+.gridCompLay .compLay .cabessLay .item.numEnomePedidoVendedor .numPedido {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+.gridCompLay .compLay .cabessLay .item.numEnomePedidoVendedor .numPedido span {
+  max-width: calc(100% - 10px);
+  padding-left: 10px;
+}
+.gridCompLay .compLay .cabessLay .item.numEnomePedidoVendedor .numPedido span.numero {
+  width: 100%;
+  height: 15px;
+  line-height: 15px;
+}
+.gridCompLay .compLay .cabessLay .item.numEnomePedidoVendedor .numPedido span.defNumero {
+  width: 100%;
+  height: 20px;
+  line-height: 30px;
+  font-size: 20px;
+}
+.gridCompLay .compLay .cabessLay .item.datEhoraPedidoEntraga {
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  gap: 10px;
+  height: 100%;
+}
+.gridCompLay .compLay .cabessLay .item.datEhoraPedidoEntraga .dataPedido {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+.gridCompLay .compLay .cabessLay .item.datEhoraPedidoEntraga .dataPedido span {
+  max-width: calc(100% - 10px);
+  padding-left: 10px;
+}
+.gridCompLay .compLay .cabessLay .item.datEhoraPedidoEntraga .dataPedido span.pedido {
+  width: 100%;
+  height: 15px;
+  line-height: 15px;
+}
+.gridCompLay .compLay .cabessLay .item.datEhoraPedidoEntraga .dataPedido span.defPedido {
+  width: 100%;
+  height: 20px;
+  line-height: 30px;
+  font-size: 20px;
+}
+.gridCompLay .compLay .cabessLay .item.datEhoraPedidoEntraga .dataHoraEntrega {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+.gridCompLay .compLay .cabessLay .item.datEhoraPedidoEntraga .dataHoraEntrega span {
+  max-width: calc(100% - 10px);
+  padding-left: 10px;
+}
+.gridCompLay .compLay .cabessLay .item.datEhoraPedidoEntraga .dataHoraEntrega span.entrega {
+  width: 100%;
+  height: 15px;
+  line-height: 15px;
+}
+.gridCompLay .compLay .cabessLay .item.datEhoraPedidoEntraga .dataHoraEntrega span.defEntrega {
+  width: 100%;
+  height: 20px;
+  line-height: 30px;
+  font-size: 20px;
+}
+.gridCompLay .compLay .cabessLay .item.iconeTipoRelevo {
+  min-width: 100px;
+  width: 100px;
+}
+.gridCompLay .compLay .contenteLay {
+  min-width: 100%;
+  min-height: 357px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  height: auto;
+}
+.gridCompLay .compLay .contenteLay .itemArea {
+  min-height: 476px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-color: rgb(216, 215, 208);
+  background-image: url("data:image/svg+xml;utf8,            <svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' class='testinh' viewBox='0 0 100 100'>                <rect fill='%23000' fill-opacity='0.2' width='50' height='50' x='0' y='0' />                <rect fill='%23000' fill-opacity='0.2' width='50' height='50' x='50' y='50' />                <rect fill='%23fff' fill-opacity='0.2' width='50' height='50' x='50' y='0' />                <rect fill='%23fff' fill-opacity='0.2' width='50' height='50' x='0' y='50' />            </svg>");
+  background-size: 20px, cover;
+  padding: 5px;
+  outline: 1px dashed black;
+}
+.gridCompLay .compLay .contenteLay .itemArea span.noNeqzisteItem {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  background: rgba(0, 0, 0, 0.3);
+  transition: 1000ms ease-in-out;
+  outline: 4px solid rgba(0, 0, 0, 0.5);
+}
+.gridCompLay .compLay .contenteLay .itemArea span.noNeqzisteItem:after {
+  content: "👕";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  padding-top: 14px;
+}
+.gridCompLay .compLay .contenteLay .itemArea span.noNeqzisteItem:hover {
+  opacity: 1 !important;
+}
+.gridCompLay .compLay .contenteLay .itemArea:hover span.noNeqzisteItem {
+  opacity: 0.5;
+}
+.gridCompLay .compLay .contenteLay .itemInfo {
+  min-height: 476px;
+  width: 300px;
+  height: auto;
+  background-color: rgb(219, 189, 18);
+  padding: 5px;
+  outline: 1px solid black;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  height: 100%;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta h3 {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  color: red;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta p {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.7);
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta p span {
+  color: red;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta p span.dest {
+  min-width: 80px;
+  color: black;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta p span.result {
+  width: 100%;
+  height: auto;
+  text-align: left;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta p span.repsColor {
+  bottom: 1px;
+  width: 60px;
+  height: 20px;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta p span.repsColor.preto {
+  background-color: black;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta p span.repsColor.vermelho {
+  background-color: red;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta p span.repsColor.azul {
+  background-color: blue;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  height: auto;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarUm {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 50%;
+  height: auto;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarUm span.unoTitle {
+  position: relative;
+  min-width: 100%;
+  height: auto;
+  color: black;
+  text-align: left;
+  z-index: 1;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarUm .colDesc {
+  min-height: 210px;
+  display: flex;
+  justify-content: flex-start;
+  width: calc(100% - 30px);
+  outline: 1px solid rgba(0, 0, 0, 0.9);
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarUm .colDesc ul {
+  margin-left: 0;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  width: 100%;
+  height: auto;
+  list-style: none;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarUm .colDesc ul li {
+  max-height: 30px;
+  width: 100%;
+  height: auto;
+  color: black;
+  line-height: 30px;
+  border-bottom: 1px solid black;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarUm .colDesc ul li.itemDscrip {
+  width: calc(100% - 10px);
+  height: 30px;
+  padding-left: 10px;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarUm .colDesc ul li.itemResult {
+  width: 30px;
+  height: 30px;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarUm .colResult {
+  min-height: 210px;
+  display: flex;
+  justify-content: flex-start;
+  width: 30px;
+  outline: 1px solid rgba(0, 0, 0, 0.9);
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarUm .colResult ul {
+  margin-left: 0;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  width: 100%;
+  height: auto;
+  list-style: none;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarUm .colResult ul li {
+  max-height: 30px;
+  width: 100%;
+  height: auto;
+  color: black;
+  line-height: 30px;
+  border-bottom: 1px solid black;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarUm .colResult ul li.itemDscrip {
+  width: calc(100% - 10px);
+  height: 30px;
+  padding-left: 10px;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarUm .colResult ul li.itemResult {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  color: white;
+  background-color: rgb(255, 30, 0);
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarDois {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 50%;
+  height: auto;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarDois span.unoTitle {
+  position: relative;
+  min-width: 100%;
+  height: auto;
+  color: black;
+  text-align: left;
+  z-index: 1;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarDois .colDesc {
+  min-height: 210px;
+  display: flex;
+  justify-content: flex-start;
+  width: calc(100% - 30px);
+  outline: 1px solid rgba(0, 0, 0, 0.9);
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarDois .colDesc ul {
+  margin-left: 0;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  width: 100%;
+  list-style: none;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarDois .colDesc ul li {
+  max-height: 30px;
+  width: 100%;
+  height: auto;
+  color: black;
+  line-height: 30px;
+  border-bottom: 1px solid black;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarDois .colDesc ul li.itemDscrip {
+  width: calc(100% - 10px);
+  height: 30px;
+  padding-left: 10px;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarDois .colDesc ul li.itemResult {
+  width: 30px;
+  height: 30px;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarDois .colResult {
+  min-height: 210px;
+  display: flex;
+  justify-content: flex-start;
+  width: 30px;
+  outline: 1px solid rgba(0, 0, 0, 0.9);
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarDois .colResult ul {
+  margin-left: 0;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  width: 100%;
+  height: auto;
+  list-style: none;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarDois .colResult ul li {
+  max-height: 30px;
+  width: 100%;
+  height: auto;
+  color: black;
+  line-height: 30px;
+  border-bottom: 1px solid black;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarDois .colResult ul li.itemDscrip {
+  width: calc(100% - 10px);
+  height: 30px;
+  padding-left: 10px;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .tabelaVariacoesItem .colVarDois .colResult ul li.itemResult {
+  width: 30px;
+  height: 30px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  color: white;
+  background-color: rgb(255, 30, 0);
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .quadroUnidades {
+  max-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 190px;
+  height: 80px;
+  padding: 10px;
+  outline: 3px solid rgba(0, 0, 0, 0.9);
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .quadroUnidades span.infoItemXperUN {
+  width: 100%;
+  height: 20px;
+  color: black;
+  text-align: center;
+}
+.gridCompLay .compLay .contenteLay .itemInfo .contCompCamiseta .quadroUnidades h3 {
+  width: 100%;
+  height: 20px;
+  font-size: 30px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.gridCompLay .compLay .contenteCiencia {
+  min-height: 100px;
+  width: 1fr;
+  height: auto;
+  padding: 15px 50px;
+  background: yellow;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom: 2px solid black;
+}
+.gridCompLay .compLay .contenteCiencia hr.separadorOne {
+  position: relative;
+  margin: 20px auto;
+  width: 100%;
+  height: 4px;
+  border: none;
+  border-top: 1px dashed #8c8b8b;
+}
+.gridCompLay .compLay .contenteCiencia hr.separadorOne:before {
+  content: "🖊";
+  position: absolute;
+  top: -10px;
+  left: calc(50% - 15px);
+  width: 30px;
+  height: auto;
+  text-align: center;
+  background: #fff;
+  border-radius: 30px;
+  outline: 1px solid grey;
+}
+.gridCompLay .compLay .contenteCiencia.bubble--highlight {
+  background-color: #FFF;
+  /* Removido: background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect stroke='%23FFD40F' stroke-width='.5' width='1' height='1' id='s'/%3E%3Cpattern id='a' width='3' height='3' patternUnits='userSpaceOnUse' patternTransform='scale(6.65) translate(-849.62 -637.22)'%3E%3Cuse fill='%23fcd20f' href='%23s' y='2'/%3E%3Cuse fill='%23fcd20f' href='%23s' x='1' y='2'/%3E%3Cuse fill='%23fad00f' href='%23s' x='2' y='2'/%3E%3Cuse fill='%23fad00f' href='%23s'/%3E%3Cuse fill='%23f7ce0f' href='%23s' x='2'/%3E%3Cuse fill='%23f7ce0f' href='%23s' x='1' y='1'/%3E%3C/pattern%3E%3Cpattern id='b' width='7' height='11' patternUnits='userSpaceOnUse' patternTransform='scale(6.65) translate(-849.62 -637.22)'%3E%3Cg fill='%23f5cb0e'%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' y='5' /%3E%3Cuse href='%23s' x='1' y='10'/%3E%3Cuse href='%23s' x='2' y='1'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='8'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='5' y='2'/%3E%3Cuse href='%23s' x='5' y='6'/%3E%3Cuse href='%23s' x='6' y='9'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='h' width='5' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(6.65) translate(-849.62 -637.22)'%3E%3Cg fill='%23f5cb0e'%3E%3Cuse href='%23s' y='5'/%3E%3Cuse href='%23s' y='8'/%3E%3Cuse href='%23s' x='1' y='1'/%3E%3Cuse href='%23s' x='1' y='9'/%3E%3Cuse href='%23s' x='1' y='12'/%3E%3Cuse href='%23s' x='2'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='2'/%3E%3Cuse href='%23s' x='3' y='6'/%3E%3Cuse href='%23s' x='3' y='11'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='4' y='10'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='c' width='17' height='13' patternUnits='userSpaceOnUse' patternTransform='scale(6.65) translate(-849.62 -637.22)'%3E%3Cg fill='%23f2c90e'%3E%3Cuse href='%23s' y='11'/%3E%3Cuse href='%23s' x='2' y='9'/%3E%3Cuse href='%23s' x='5' y='12'/%3E%3Cuse href='%23s' x='9' y='4'/%3E%3Cuse href='%23s' x='12' y='1'/%3E%3Cuse href='%23s' x='16' y='6'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='d' width='19' height='17' patternUnits='userSpaceOnUse' patternTransform='scale(6.65) translate(-849.62 -637.22)'%3E%3Cg fill='%23FFD40F'%3E%3Cuse href='%23s' y='9'/%3E%3Cuse href='%23s' x='16' y='5'/%3E%3Cuse href='%23s' x='14' y='2'/%3E%3Cuse href='%23s' x='11' y='11'/%3E%3Cuse href='%23s' x='6' y='14'/%3E%3C/g%3E%3Cg fill='%23efc70e'%3E%3Cuse href='%23s' x='3' y='13'/%3E%3Cuse href='%23s' x='9' y='7'/%3E%3Cuse href='%23s' x='13' y='10'/%3E%3Cuse href='%23s' x='15' y='4'/%3E%3Cuse href='%23s' x='18' y='1'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='e' width='47' height='53' patternUnits='userSpaceOnUse' patternTransform='scale(6.65) translate(-849.62 -637.22)'%3E%3Cg fill='%23FFFAF2'%3E%3Cuse href='%23s' x='2' y='5'/%3E%3Cuse href='%23s' x='16' y='38'/%3E%3Cuse href='%23s' x='46' y='42'/%3E%3Cuse href='%23s' x='29' y='20'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='f' width='59' height='71' patternUnits='userSpaceOnUse' patternTransform='scale(6.65) translate(-849.62 -637.22)'%3E%3Cg fill='%23FFFAF2'%3E%3Cuse href='%23s' x='33' y='13'/%3E%3Cuse href='%23s' x='27' y='54'/%3E%3Cuse href='%23s' x='55' y='55'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='g' width='139' height='97' patternUnits='userSpaceOnUse' patternTransform='scale(6.65) translate(-849.62 -637.22)'%3E%3Cg fill='%23FFFAF2'%3E%3Cuse href='%23s' x='11' y='8'/%3E%3Cuse href='%23s' x='51' y='13'/%3E%3Cuse href='%23s' x='17' y='73'/%3E%3Cuse href='%23s' x='99' y='57'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23b)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23h)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23c)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23d)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23e)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23f)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover; */
+  font-weight: 700;
+}
+.gridCompLay .compLay .contenteCiencia .itemObservacao {
+  width: 100%;
+  height: auto;
+}
+.gridCompLay .compLay .contenteCiencia .itemObservacao p {
+  position: relative;
+  width: 100%;
+  color: red;
+  text-align: justify;
+  text-justify: inter-word;
+  text-decoration-line: underline;
+  text-decoration-color: #000;
+  text-underline-offset: 5px;
+}
+.gridCompLay .compLay .contenteCiencia .itemObservacao p span.destaque {
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+}
+.gridCompLay .compLay .contenteCiencia .itemObservacao p:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  bottom: -2px;
+  border-bottom: 1px solid #000;
+}
+.gridCompLay .compLay .contenteCiencia .itemAssinatura {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+.gridCompLay .compLay .contenteCiencia .itemAssinatura p {
+  width: 100%;
+  height: auto;
+  text-align: left;
+  text-decoration: underline;
+}
+.gridCompLay .compLay .contenteCiencia .itemAssinatura p span.asisnatura {
+  font-size: 20px;
+  text-decoration: none;
+}
+.gridCompLay .compLay .contenteCiencia .itemAssinatura p span.ocupaEspacoSEMassinatura {
+  min-width: 200px;
+  height: auto;
+}
+.gridCompLay .compLay .contenteCiencia .itemAssinatura p span.ocupaEspacoSEMassinatura:before {
+  content: "                                                                    ";
+  color: red;
+}/*# sourceMappingURL=compLayoutItem.css.map */

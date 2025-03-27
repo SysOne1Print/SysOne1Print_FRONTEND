@@ -1,0 +1,110 @@
+Rota: /finance -> ✅
+
+	Quando um pedido for pago dias depois do recebimento de seu orçamento, ele deve redigir a data proposta a partir da confirmação do pagamento' Para que não ocorra situações como a da PRINT: https://prnt.sc/O0WDq6APjtRA -> ✅
+	(o pedido era do dia 16 mas "hoje" é dia 23.) -> ✅
+
+	PRINT sobre o campo data referido: https://prnt.sc/aVLSQRIR1Ye1 -> ✅
+		Descrição: -> ✅
+			Quando o STATUS for alterado seja para qualquer opção da <select>, a data do campo "Aprovado" deve ser atualizada para a data atual da ação. (essa alteração é singular da mudança no valor dessa select em específico.) -> ✅
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Rota: /finance/accounting -> ✅ (Provavelmente o campo de ocorrência como string estava dando erro)
+
+	Contas a pagar: -> ✅
+		btn.Criar conts -> modal.Form -> -> ✅
+			Preenchi tudo, mas na hora de cadastrar, a mensagem de erro sobe ao canto direito superior, dizendo: "Envie os dados corretamente". -> ✅
+
+			PRINT Erro:  https://prnt.sc/voUvVeOwKWF2 -> ✅
+
+	Contas a receber:
+		btn.Criar contas -> modal.Form ->
+			O formulário ainda é o mesmo do cadastrar contas a pagar, inclusive ele herdou os dados preenchidos lá (para o teste de criar contas a pagar). -> ✅
+
+			PRINT: https://prnt.sc/015iaTM3K3Tm (Nota-se que os valores dos campos, foram os valores usados para teste) -> ✅
+
+			PS: retornou o mesmo erro descrito (na linha: 5) -> ✅
+
+	// Não consegui realizar o registro e nem testar o delete. -> ✅
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Rota: /production/
+
+	Aplicar os novos visuais. -> ✅
+		/approvedRequestView (Pedidos Aprovados) -> -> ✅
+			Tela fix: https://cabalprivate.com.br/ONE1/ftp/pedidosAprovados.html -> ✅
+
+			Na correção de tela: -> ✅
+				- Corigido a abertura do espaço de trabalho: Adicionadas classes de width-fix para os containeres: -> ✅
+					.container.page__container (ADD).fixW100 -> ✅
+					(ou usa sua genialidade em manter(ADD): .container-xl .container-fluid) recomendo forçar, maaas..) -> ✅
+
+				- Corrigido a disposição das tabelas. (Global CSS para as steps' o estilo é aplicado, com poucas alterações de estrutura). -> ✅⚠️ (não entendi)
+
+				- Corrigido a disposição dos Arquivos do pedido -> ✅
+					Quantos arquivos existem no pedido + Array nomes dos arquivos.formato -> ✅
+					Exemplo da coluna: (2)nome_arquivo_2.pdf,nome_arquivo_2.cdr -> ✅
+										A disposição segue em linha única, iniciando com a quantidade de arquivos e os nomes separados por vírgula. -> ✅
+										(Elipses "reticências" é adicionada a coluna quando o texto for maior que..) E para copiar os nomes do array existe um botão "copiar nome do arquivo" que nesse caso copiaria da disposição do array.. -> ✅
+
+				- Detalhe a ser fixado: O botão de ação na Tabela (canto superior direito) "Concluir os selecionados" -> ✅
+					Certamente que o botão é visível quando algum checkbox das linhas for === checked //alias -> ✅
+
+			Tela atual (objetos testados):
+				<select> "Ordenar por TIPO de Trabalho" ->
+				aparentemente não funcionou, eu fiz trocar entre as options e o pedido de teste ainda era visível em qualquer que eu escolhesse, dentre as opções:
+					=Exibir todos os tipos de trabalho 		//Aqui, creio que tá ok, haha né!
+					=Impressão DTF							//Aqui, não surgiu nem saiu naraº
+					=Impressão DTF UV						//Aqui, não surgiu nem saiu nara¹
+					=Impressão sublimática					//Aqui, não surgiu nem saiu nara²
+					=Substrato de Impressão					//Aqui, não surgiu nem saiu nara³
+
+				<button> "Concluir as tarefas selecionadas" -> ✅
+					Aparentemente está funcionando, porém ele está sendo exibido sem existir uma ou mais linhas checadas. (Linha: 39) -> ✅
+						|-> "aparentemente" porque ao selecionar o pedido e tocar o botão, houve a mensagem de sucesso, MAS -> ✅
+							o pedido que deveria seguir para "Arte final" não apareceu lá, mas foi removido da tabela. -> ✅
+
+
+				Ações NA LINHA DO PEDIDO
+					btn.Detalhes (modal dos detalhes do pedido) -> -> ✅
+						Tempo previsto, está recebendo uma data "01/01/1970" //Sem orientação aqui' -> ✅
+						Entrega final, está recebendo uma data "01/01/1970"  //Sem orientação aqui' -> ✅
+
+						No mais, aparenta estar tudo em ordem com o modal. -> ✅
+
+					btn.Mover para o próximo setor -> 🚨🚨🚨 Tratar com muita urgência. 🚨🚨🚨 -> ✅
+						O pedido está sendo "finalizado"? Quando deveria apenas mover para o setor posterior. -> ✅ (antes estava finalizando nao sei pq '-', MUITO BURRO)
+							Não que esteja sendo finalizado, pois a mensagem que recebe no whatsapp diz: "@NomeCliente, recebemos o seu pedido. O número do pedido é: @IDPedidoNum. Produtos: Impressão DTF. Previsã ode entrega: @DataHoje. Clique abaixo para acompanhar(url@linha 69)" -> ✅
+
+							URL-Clique aqui (whatsapp msg) -> www.../acompanhar-pedido/11 -> ⚠️ (temos que esperar a no-ip responder para adicionar o https/ssl para funcionar corretamente)
+							está dando erro, algo haver com aquela anotação que o Joreel tomou (ontem/Domingo) sobre corrigir a rota de consulta pro cliente. 404
+
+						//Eu requeri urgência nesse tópico, pois eu preciso que os setores sejam populados com o fluxo de (mover para o próximo setor)
+
+						Essa correção deve se extender para os 4 setores(rotas), então os dois últimos botões de ação da linha do pedido, -> ✅
+						são as rotas: -> ✅
+							   /production/approvedRequestView  (Pedidos Aprovados) -> ✅
+							   /production/finalArtView 		(Arte Final) -> ✅
+							   /admin/produceView				(Produção) -> "/admin/" (?) -> ✅ (Nome da rota nao importa ainda)
+							   /production/qualityControlView   (Controle de Qualidade) -> ✅
+
+							   Essas rotas devem ter urgência na correção dos botões. (Tanto mover para o próximo, quanto anterior!) - Para seguir com os testes de /production/. -> ✅
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+	Os detalhes dos pedidos em qualquer rota que as forneçam devem compor uma log de quem foi o usuário logado que realizou ações evolutivas. -> ✅
+
+	Sei que já fez isso, então basicamente é só implementar ao modal Detalhes (das ações da linha -> btn.Detalhes) -> ✅
+
+	Seriam as rotas, a receberem um botão desses em suas ações: -> ✅
+		/finance -> ✅
+		/production/approvedRequestView -> ✅
+		/production/finalArtView -> ✅
+		/admin/produceView -> ✅
+		/production/qualityControlView -> ✅
+		/expedicao/expedicao-final -> ✅
+
+		Todas essas rotas dispõem do botão Detalhes, onde devem trazer essas Logs de alterações por usuário. -> ✅
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

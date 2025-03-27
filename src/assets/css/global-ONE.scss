@@ -1,0 +1,780 @@
+/* Classes globais ONE1 */
+
+.oneScroll::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.oneScroll::-webkit-scrollbar {
+  width: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: #fff;
+}
+
+.oneScroll::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.01);
+  background-color: rgba(85, 85, 85, 0.5);
+
+  &:hover {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #5567ff;
+    cursor: pointer;
+  }
+}
+
+/*/ FixFOO */
+.fixFoo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 43px;
+  background: rgba(0, 0, 0, 0.02);
+  padding: 0 24px;
+  border-top: 1px dashed rgba(128, 128, 128, .8);
+  z-index: -1;
+
+  span {
+    img {
+      opacity: .1;
+      transition: 800ms ease-in-out fadeInOut infinite;
+    }
+
+    @keyframes fadeInOut {
+      from {
+        opacity: .1;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.01);
+    border-top: 1px dashed rgba(128, 128, 128, .5);
+
+    span {
+      img {
+        opacity: .3;
+      }
+    }
+  }
+}
+
+/* Final FixFOO. /*/
+
+/* Algo para o form de cadastro //Verificar[x] Define a altura para aplicar scroll-y auto em alguns formulários */
+.card-minimoH {
+  min-height: 100px;
+  height: auto;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.testinho {
+  /* usada na Logo */
+  transition: 2s ease-in-out;
+
+  &:hover {
+    filter: opacity(55%);
+  }
+}
+
+@media (max-width: 991.98px) {
+  .fixTestinho {
+    background-color: yellow !important;
+  }
+}
+
+.hgt-75 {
+  min-height: 75px !important;
+}
+
+small.o-size {
+  font-size: 10px;
+}
+
+.efeito-lista {
+  &:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.01);
+  }
+
+  &:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+}
+
+/* Hack Margin e Padding */
+.mb0 {
+  margin-bottom: 0 !important;
+}
+
+.mb0p12 {
+  margin-bottom: 0 !important;
+  padding: 12px !important;
+}
+
+/* Fix LABEL */
+.fxLabelCheck {
+  height: 20px;
+  line-height: 19px;
+
+  .material-icons {
+    height: 20px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Botão de PAGAMENTO */
+#irPagamento {
+  display: none;
+}
+
+/* Botão add Saldo Externo */
+.externalAddSaldo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 20px;
+  color: white;
+  font-size: 14px;
+  text-shadow:
+    1.2px 0 0 #2239ff,
+    -1.2px 0 0 #2239ff,
+    0 1.2px 0 #2239ff,
+    0 -1.2px 0 #2239ff,
+    /**/
+    1.2px -1.2px 0 #2239ff,
+    -1.2px 1.2px 0 #2239ff,
+    1.2px 1.2px 0 #2239ff,
+    -1.2px -1.2px 0 #2239ff;
+  background: #5567ff;
+  box-shadow: inset 0 -2px 0 #5d90ff;
+  border: 1px solid #2239ff;
+  border-radius: 3px !important;
+  outline: 1px solid rgb(203, 203, 203);
+
+  i {
+    color: white;
+    font-size: 14px;
+    text-shadow:
+      1.2px 0 0 #2239ff,
+      -1.2px 0 0 #2239ff,
+      0 1.2px 0 #2239ff,
+      0 -1.2px 0 #2239ff,
+      /**/
+      1.2px -1.2px 0 #2239ff,
+      -1.2px 1.2px 0 #2239ff,
+      1.2px 1.2px 0 #2239ff,
+      -1.2px -1.2px 0 #2239ff;
+  }
+
+  &.w-15 {
+    width: 15%;
+  }
+
+  &.w-25 {
+    width: 25%;
+  }
+
+  &.w-50 {
+    width: 50%;
+  }
+
+  &.w-75 {
+    width: 75%;
+  }
+
+  &:hover {
+    color: white;
+    text-shadow:
+      1px 0 0 darkgreen,
+      -1px 0 0 darkgreen,
+      0 1px 0 darkgreen,
+      0 -1px 0 darkgreen,
+      /**/
+      1px -1px 0 darkgreen,
+      -1px 1px 0 darkgreen,
+      1px 1px 0 darkgreen,
+      -1px -1px 0 darkgreen;
+    background: green;
+    box-shadow: inset 0 -2px 0 lightgreen;
+    border: 1px solid darkgreen;
+    border-radius: 3px !important;
+    outline: 1px solid darkolivegreen;
+
+    i {
+      color: #d0d0d0;
+      margin-right: 10px;
+    }
+  }
+}
+
+/* revestimentoModal AddSaldo */
+.form-group {
+  &.aSld {
+    position: relative;
+    width: 100%;
+    margin-bottom: 0;
+
+    .addSaldoTxt {
+      width: 100%;
+      height: 60px;
+      background: white;
+      font-size: 20pt;
+      color: rgba(0, 0, 0, .7);
+      z-index: 3;
+    }
+
+    button {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+
+  }
+}
+
+.qrCodeAddSaldo {
+  position: relative;
+  min-height: 100px;
+  width: 100%;
+  height: auto;
+  color: rgba(0, 0, 0, .7);
+  background-image: url('../images/svg/qr.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  font-size: 20pt;
+  text-align: right;
+
+  &:after {
+    content: 'ONE1 PRINT LTDA. & CIA TGDAH - NU Banco';
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 100px;
+    color: grey;
+    font-size: 12pt;
+    text-align: right;
+    padding: 0;
+  }
+}
+
+/** */
+.entregaDisplay {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+  border: 1px dashed #5d90ff;
+  outline: 1px solid #fff;
+
+  span {
+    width: 100%;
+    background: #5d90ff22;
+    font-size: 12pt;
+    color: #5567ff;
+    font-weight: 100;
+    padding: 1px 5px;
+
+    &.dstq {
+      width: auto;
+      color: #2239ff;
+    }
+  }
+}
+
+#EntregaConfig {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: auto;
+
+  .internaEntregaConfig {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 10px;
+    margin-left: -23px;
+    width: calc(100% + 23px);
+    height: auto;
+
+    .form-group {
+      width: 100%;
+      padding-top: 10px;
+
+      label {
+        color: rgba(0, 0, 0, 0.5);
+      }
+
+      input {
+        &:focus~.input-group-prepend {
+          border-left: 2px solid #5567ff;
+        }
+      }
+    }
+  }
+}
+
+#LOGISTICA:checked~#EntregaConfig {
+  display: block !important;
+}
+
+/* **/
+
+/* FIX input VALOR DO PIX */
+.valuePIX {
+  position: relative !important;
+  padding-left: 30px !important;
+
+  &:before {
+    content: "R$";
+    position: absolute !important;
+    top: 5px !important;
+    left: 10px !important;
+    font-size: 15px !important;
+    color: blue !important;
+  }
+}
+
+/* Hidden objeto */
+.relativandoOtrem {
+  position: relative;
+}
+
+.otariano {
+  display: block;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background-color: #fff;
+  outline: 1px solid rgba(204, 204, 204, 0.3);
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Reescrevendo o estilo do botão */
+.dz-button {
+  padding: 25px;
+  font-size: 10pt;
+  background-color: white;
+  color: #5567ff;
+  border: none !important;
+  outline: 1px dashed #5567ff;
+  border-radius: 5px !important;
+}
+
+.maxHMenu {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Botões de Estatísticas da Dash do vendedor */
+// .btnEstatistica {
+//   width: 100%;
+//   min-height: 60px;
+//   height: auto;
+//   padding: 16px;
+
+//   &:hover {
+//     cursor: pointer;
+//     background-color: rgba(0, 0, 0, 0.02);
+//   }
+
+//   &.active {
+//     background-color: rgba(144, 238, 144, 0.5);
+//     border-left: 3px solid rgb(94, 161, 94);
+
+//     &:hover {
+//       cursor: pointer;
+//       background-color: rgba(144, 238, 144, 0.3);
+//       border-left: 3px solid rgba(94, 161, 94, 0.8);
+//     }
+//   }
+// }
+
+/* Passo a Passo LIST */
+.stepper {
+  position: absolute;
+  top: 0px;
+  left: -30px;
+  width: 20px;
+  height: auto;
+  z-index: 5;
+
+  .pontoRefMarcador {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    background: #949494;
+    color: rgba(255, 255, 255, .8);
+    border: 2px solid white;
+    outline: 2px solid rgba(211, 211, 211, 1);
+    transition: 1s ease-in-out;
+    z-index: 2;
+
+    &:hover {
+      cursor: default;
+      background: #5e5e5e;
+      color: rgb(255, 255, 255);
+      border: 2px solid white;
+      outline: 2px solid rgb(184, 184, 184);
+    }
+
+    &.active {
+      cursor: pointer;
+      background: #5567ff;
+      color: rgb(255, 255, 255);
+      border: 2px solid white;
+      outline: 2px solid #5567ff;
+    }
+
+    &.preenchido {
+      position: relative;
+      cursor: pointer;
+      background: #585fa5;
+      color: rgb(255, 255, 255);
+      border: 2px solid white;
+      outline: 2px solid #5567ff;
+
+      &:hover {
+        background: #5e5e5e;
+        color: rgb(255, 255, 255);
+        border: 2px solid white;
+        outline: 2px solid rgb(184, 184, 184);
+
+        &:before {
+          content: '🤡';
+          position: absolute;
+          top: -2px;
+          left: -2px;
+        }
+      }
+    }
+  }
+
+  .line {
+    width: 2px;
+    min-height: 30px;
+    background-color: lightgrey !important;
+    z-index: 1;
+
+    &.preenchido {
+      background-color: #5567ff !important;
+    }
+  }
+
+  .lead {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 1250px) {
+  .stepper {
+    display: none !important;
+  }
+}
+
+
+/* HR */
+.oneSpace {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* Imagem Item */
+img.ImagemRefItem {
+  margin-bottom: 12px;
+  border: 1px solid light;
+  border-radius: 5px;
+  outline: 3px solid rgba(0, 0, 0, 0.05);
+  transition: 1s ease-in-out;
+
+  &:hover {
+    filter: sepia(0%);
+    outline: 3px solid rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+}
+
+img.selectImagemRefItem {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 1px solid light;
+  border-radius: 5px;
+  outline: 3px solid rgba(0, 0, 0, 0.05);
+  filter: sepia(25%);
+  transition: 2s ease-in-out;
+
+  &:hover {
+    filter: sepia(0%);
+    outline: 3px solid rgba(24, 255, 3, .5);
+    cursor: pointer;
+  }
+
+  &.ativo {
+    filter: sepia(0%);
+    outline: 3px solid rgba(24, 255, 3, .5);
+    cursor: pointer;
+  }
+}
+
+.naoTemImg {
+  display: none !important;
+}
+
+/* Table */
+tr {
+  td {
+    &.displayFix {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      height: auto;
+      padding: 6px 0 !important;
+
+      /* Saldo DISPLAY inList **/
+      .SaldoDisplay {
+        max-height: 39px;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(244, 244, 244);
+        padding: 3px;
+        border-radius: 5px;
+        border-bottom: 1px solid rgba(225, 225, 225, 1);
+        text-shadow:
+          2px 0 0 rgb(255, 255, 255),
+          -2px 0 0 rgb(255, 255, 255),
+          0 2px 0 rgb(255, 255, 255),
+          0 -2px 0 rgb(255, 255, 255),
+          /**/
+          2px -2px 0 rgb(255, 255, 255),
+          -2px 2px 0 rgb(255, 255, 255),
+          2px 2px 0 rgb(255, 255, 255),
+          -2px -2px 0 rgb(255, 255, 255);
+        box-shadow:
+          0 2px 0px rgba(0, 0, 0, 0.1);
+
+        p.fixAddSaldoButton {
+          max-width: 100%;
+          font-size: 14px;
+
+          &.text-positive {
+            font-size: 14px;
+            margin-bottom: 0 !important;
+          }
+
+          &.text-accent {
+            font-size: 14px;
+            margin-bottom: 0 !important;
+          }
+        }
+
+        .addSaldo {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          width: 100%;
+          height: 20px;
+          color: white;
+          font-size: 14px;
+          text-shadow:
+            1.2px 0 0 #2239ff,
+            -1.2px 0 0 #2239ff,
+            0 1.2px 0 #2239ff,
+            0 -1.2px 0 #2239ff,
+            /**/
+            1.2px -1.2px 0 #2239ff,
+            -1.2px 1.2px 0 #2239ff,
+            1.2px 1.2px 0 #2239ff,
+            -1.2px -1.2px 0 #2239ff;
+          background: #5567ff;
+          box-shadow: inset 0 -2px 0 #5d90ff;
+          border: 1px solid #2239ff;
+          border-radius: 3px;
+          outline: 1px solid rgb(203, 203, 203);
+
+          i {
+            color: white;
+            font-size: 14px;
+            text-shadow:
+              1px 0 0 darkgreen,
+              -1px 0 0 darkgreen,
+              0 1px 0 darkgreen,
+              0 -1px 0 darkgreen,
+              /**/
+              1px -1px 0 darkgreen,
+              -1px 1px 0 darkgreen,
+              1px 1px 0 darkgreen,
+              -1px -1px 0 darkgreen;
+          }
+
+          &:hover {
+            color: white;
+            text-shadow:
+              1px 0 0 darkgreen,
+              -1px 0 0 darkgreen,
+              0 1px 0 darkgreen,
+              0 -1px 0 darkgreen,
+              /**/
+              1px -1px 0 darkgreen,
+              -1px 1px 0 darkgreen,
+              1px 1px 0 darkgreen,
+              -1px -1px 0 darkgreen;
+            background: green;
+            box-shadow: inset 0 -2px 0 lightgreen;
+            border: 1px solid darkgreen;
+            border-radius: 3px !important;
+            outline: 1px solid darkolivegreen;
+
+            i {
+              color: #d0d0d0;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    /* Botão SELECIONAR replicado de AddSaldo */
+    // .btn-success {
+    //   display: flex;
+    //   flex-direction: row;
+    //   justify-content: center;
+    //   align-items: center;
+    //   position: relative;
+    //   width: 100%;
+    //   height: auto;
+    //   color: white !important;
+    //   font-size: 14px;
+    //   font-weight: 100;
+    //   text-shadow:
+    //     1.2px 0 0 #2239ff,
+    //     -1.2px 0 0 #2239ff,
+    //     0 1.2px 0 #2239ff,
+    //     0 -1.2px 0 #2239ff,
+    //     /**/
+    //     1.2px -1.2px 0 #2239ff,
+    //     -1.2px 1.2px 0 #2239ff,
+    //     1.2px 1.2px 0 #2239ff,
+    //     -1.2px -1.2px 0 #2239ff !important;
+    //   background: #5567ff !important;
+    //   box-shadow: inset 0 -2px 0 #5d90ff !important;
+    //   border: 1px solid #2239ff !important;
+    //   border-radius: 3px !important;
+    //   outline: 1px solid rgb(203, 203, 203);
+    //   transition: 400ms ease-in-out;
+
+    //   i {
+    //     color: #d0d0d0;
+    //     margin-right: 10px;
+    //   }
+
+    //   &:before {
+    //     content: '';
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: calc(100% / 2 - 25%);
+    //     height: 100%;
+    //     background: rgba(0, 0, 0, 0.1);
+    //     clip-path: polygon(0% 0%, 100% 0%, calc(100% - 20px) 100%, 100% 100%, 0% 100%);
+    //   }
+
+    //   &:hover {
+    //     display: flex;
+    //     flex-direction: row;
+    //     justify-content: center;
+    //     align-items: center;
+    //     position: relative;
+    //     width: 100%;
+    //     height: auto;
+    //     color: rgb(255, 255, 255) !important;
+    //     font-size: 14px;
+    //     font-weight: 100;
+    //     text-shadow:
+    //       1.2px 0 0 darkgreen,
+    //       -1.2px 0 0 darkgreen,
+    //       0 1.2px 0 darkgreen,
+    //       0 -1.2px 0 darkgreen,
+    //       /**/
+    //       1.2px -1.2px 0 darkgreen,
+    //       -1.2px 1.2px 0 darkgreen,
+    //       1.2px 1.2px 0 darkgreen,
+    //       -1.2px -1.2px 0 darkgreen !important;
+    //     background: green !important;
+    //     box-shadow: inset 0 -2px 0 lightgreen !important;
+    //     border: 1px solid darkgreen !important;
+    //     border-radius: 3px !important;
+    //     outline: 1px solid darkolivegreen !important;
+
+    //     i {
+    //       color: #fff;
+    //     }
+
+    //     &:before {
+    //       content: '';
+    //       position: absolute;
+    //       top: 0;
+    //       left: 0;
+    //       width: calc(100% / 2 - 25%);
+    //       height: 100%;
+    //       background: rgba(0, 0, 0, 0.1);
+    //       clip-path: polygon(0% 0%, 100% 0%, calc(100% - 20px) 100%, 100% 100%, 0% 100%);
+    //       transition: 800s ease-in-out;
+    //     }
+
+    //     &:hover {
+    //       background: rgb(94, 161, 94) !important;
+    //     }
+    //   }
+    // }
+  }
+
+  &:hover {
+    td {
+      background: rgba(0, 0, 0, 0.03);
+    }
+  }
+}

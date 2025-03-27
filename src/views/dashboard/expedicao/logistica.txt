@@ -1,0 +1,21 @@
+                <!-- <ModelContentReplacement>
+                  <div class="modal-content">
+                    <div class="modal-top">
+                      <span class="modal-close" rule="button" @click.prevent="closeModal">×</span>
+                    </div>
+                    <div class="w-100 d-flex flex-column border-bottom">
+                      <h4 class="mb-0">Editar Logística</h4>
+                      <p>
+                        Ordem de Serviço Nº
+                        <span class="font-weight-bold">#0A-35C3PO</span>
+                      </p>
+                    </div>
+
+                    <ModalContentLogistic
+                      @update-list-orc="updateListOrcamento"
+                      :logisticAll="logisticAll"
+                      :orcamento="selectItemOrc"
+                    >
+                    </ModalContentLogistic>
+                  </div>
+                </ModelContentReplacement>

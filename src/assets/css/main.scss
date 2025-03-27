@@ -1,0 +1,77 @@
+//@import './carrinho.css';
+@use './carrinho' as carrinho;
+@use './login' as login;
+
+#app {
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+}
+
+.p-multiselect-filter-icon,
+.p-icon.p-dropdown-filter-icon {
+  margin-top: -0.5rem;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal.active.modal-container {
+  height: auto;
+  margin-top: 1rem;
+}
+
+/* Fix LABEL */
+.fxLabelCheck {
+  height: 20px;
+  line-height: 19px;
+
+  .material-icons {
+    height: 20px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+
+#indicadoConfig {
+
+  .internaIndicadoConfig {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+
+    .form-group {
+      width: 100%;
+      padding-top: 10px;
+
+      label {
+        color: rgba(0, 0, 0, 0.5);
+      }
+
+      input {
+        &:focus~.input-group-prepend {
+          border-left: 2px solid #5567ff;
+        }
+      }
+
+      select {
+        appearance: none;
+      }
+    }
+  }
+}
+
+#ABCD:checked~#indicadoConfig {
+  display: block !important;
+}
+
+.activeModal {
+  display: flex !important;
+}

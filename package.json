@@ -1,0 +1,76 @@
+{
+  "name": "sistema-one1print-front-end",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev-lint": "pnpm run lint && vite --mode=development ",
+    "dev": "vite --mode=development",
+    "pro": "vite --mode=production",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build --mode production",
+    "type-check": "vue-tsc --build --force",
+    "lint": "eslint . --fix ",
+    "format": "prettier --write src/",
+    "docker": "sh -c './docker.script.sh $npm_config_args"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "vue-demi"
+    ],
+    "ignoredBuiltDependencies": [
+      "@parcel/watcher"
+    ]
+  },
+  "dependencies": {
+    "@unhead/vue": "^1.8.10",
+    "@vee-validate/zod": "^4.12.6",
+    "axios": "^1.8.2",
+    "lodash.clonedeep": "^4.5.0",
+    "maska": "^2.1.11",
+    "mqtt": "^5.6.0",
+    "pinia": "^2.1.7",
+    "pinia-plugin-persistedstate": "^3.2.1",
+    "primeflex": "^3.3.1",
+    "primeicons": "^7.0.0",
+    "primevue": "^3.50.0",
+    "quill": "^2.0.3",
+    "sweetalert2": "^11.10.7",
+    "v-money3": "^3.24.1",
+    "vee-validate": "^4.12.6",
+    "vue": "^3.4.15",
+    "vue-qrious": "^3.1.1",
+    "vue-router": "^4.2.5",
+    "vue-sweetalert2": "^5.0.5",
+    "vue3-toastify": "^0.2.1",
+    "zipson": "^0.2.12",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.10.0",
+    "@tsconfig/node20": "^20.1.2",
+    "@types/lodash.clonedeep": "^4.5.9",
+    "@types/node": "^20.11.10",
+    "@typescript-eslint/eslint-plugin": "^8.6.0",
+    "@typescript-eslint/parser": "^8.6.0",
+    "@vitejs/plugin-vue": "^5.0.3",
+    "@vue/eslint-config-prettier": "^9.0.0",
+    "@vue/eslint-config-typescript": "^13.0.0",
+    "@vue/tsconfig": "^0.5.1",
+    "eslint": "^9.10.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-vue": "^9.28.0",
+    "globals": "^15.9.0",
+    "npm-run-all2": "^6.1.1",
+    "prettier": "^3.2.5",
+    "sass": "^1.83.1",
+    "sass-embedded": "^1.78.0",
+    "typescript": "~5.4.0",
+    "typescript-eslint": "^8.6.0",
+    "vite": "^5.4.11",
+    "vue-eslint-parser": "^9.4.3",
+    "vue-tsc": "^2.0.12"
+  }
+}

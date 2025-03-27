@@ -1,0 +1,32 @@
+<template>
+  <DiscountCart :value="valueProp" :getClient="getClient"></DiscountCart>
+</template>
+
+<script setup lang="ts">
+import type { IClientAll, IOrcamentoItens, orClient } from '@/model'
+import { computed, toRefs, type PropType } from 'vue'
+import DiscountCart from '../layout/Preco/DiscountCart.vue'
+
+const props = defineProps({
+  valueProduct: { type: Object as PropType<IOrcamentoItens>, required: true, default: () => {} },
+  getClient: { type: Object as PropType<IClientAll>, required: true, default: Object }
+})
+
+let real = new Intl.NumberFormat('pt-br', {
+  style: 'currency',
+  currency: 'BRL'
+})
+
+const { valueProduct } = toRefs(props)
+
+const valueProp = computed(() => {
+  return {
+    ...valueProduct.value,
+    pro_id: valueProduct.value.pro_id,
+    pro_nome: valueProduct.value.produto.pro_nome,
+    one1_produto_estoque: valueProduct.value.produto.one1_produto_estoque
+  }
+})
+</script>
+
+<style scoped></style>

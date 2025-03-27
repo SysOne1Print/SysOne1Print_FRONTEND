@@ -1,0 +1,25 @@
+Revisão/Correções/Próximas Features
+
+- Revisão
+1 - Ao cadastrar um produto do tipo insumos está dando erro, e não carrega as informações do select necessário para o cadastro
+2 - Modificar o método de desconto para item especifico: (Mudar para especificar o preço por tipo do DTF Ex: (Premium, Classico e normal) com preços destintos)
+3 - Corrigir o cadastro de insumos
+
+- Próximas Features
+1 - Tirar duvidas sobre o botão de Finalizar o pedido e pedir um ideia detalhada da modal
+
+* Tela 2/3 Orçamento
+1 - Adicionar o copia e cola com o texto para cada tipo de produto/tipo do item se é (Produto ou Serviço), caso funcione adicionar um função de envio automático via whatsapp
+	- Ex texto para produtos DTF
+
+	DTF-57cm-PREMIUM ALTA COBERTURA
+
+	cliente:
+
+	metragem TOTAL:   MT
+
+	A vista (dinheiro ou PIX):  R$
+
+	Cartão até x sem juros :   R$
+
+	STATUS: ORÇAMENTO AGUARDANDO APROVAÇÃO PAGAMENTO

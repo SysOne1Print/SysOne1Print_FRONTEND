@@ -1,0 +1,390 @@
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Relatório de testes, para FIX da R.1 ~> Produção
+FIX [Joreel] -> Teste 1 sobre as FIXes.
+
+LEGENDA:
+	✅ 	= FIX
+	🆗 	= Testado
+	🚫 	= Descarte de ação para fix/teste
+	⚠️ 	= Disposição a comunicação, retorno ou conflitos
+	🎈	= Refatorar/Revisão do dev. para FIX (Erro persitente)
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+/vendedor/criar-produto
+	Cadastro de produtos:
+
+	Visual -> Os steps, não recebem a classe ativa, em: .pontoRefMarcador -> ✅ -> 🆗
+			  identificar o atual com .active -> .pontoRefMarcador.active -> ✅ -> 🆗
+
+	Step 1:
+		Categoria
+
+			Impressão DTF/DTF-UV/Sublimática -> 🚫 -> 🆗
+				Não estão concatenando o nome do item. (devem preencher de acordo) -> 🚫 -> 🆗
+			Camiseta -> ✅ -> 🆗
+				Tecido 	[OK]
+				Cor 	[OK]
+				Tamanho [OK]
+
+				* Estoque (categoria Camiseta //pfv) -> ✅ -> 🆗
+					As input text, devem ser apenas números: especificar "Quantidade" na placeholder [ ] -> ✅ -> 🆗
+
+			Tinta sublimática -> ✅
+				(col)Unidade de medida (Produto) -> ✅
+					As unidades de medida seriam unitárias? Exibem: Milimetros, Centímetros e Metros. //Zz -> ✅
+					(Comentar com o Rebonnas, pra ver sobre.) -> ✅
+
+
+	----------------------------------------------------------------------------------------------------
+
+	Step 2:
+
+		No caso das categorias: -> 🚫 -> 🆗
+			Impressão DTF/DTF-UV/Sublimática, Camiseta -> 🚫 -> 🆗
+
+			Elas não carregam a (col)Validade (podendo desabilitar o campo ou preencher automático) -> 🚫 -> 🆗
+
+		(col)Frete grátis -> ✅ -> 🆗
+			deve alterar a label do rádio "Sim"~"Não", texto está caducando em apenas "Não" idependente se a chave liga ou desliga. -> ✅ -> 🆗
+
+		(col)Peso líquido, Peso bruto, Largura, Altura, Profundidade, Volume, Itens p/ Caixa -> ✅ _> 🆗
+			Essa colunas variam para camisetas, teremos de trabalhar esses campos. -> ✅ -> 🆗
+			Por hora, eles apenas permanecem desabilitados SE a (col)Categoria === camiseta. -> ✅ -> 🆗
+			(Confirmar isso com o rebonnas, os campos já são opcionais!) -> ✅ -> 🆗
+
+		(col)Unidade de medida -> ⚠️ (São a mesma função) -> 🆗 (Opa, entendi!)
+			Deve ter seu valor preenchido caso exista esse valor preenchido no mesmo campo do step1. -> ⚠️ -> 🆗
+
+
+	----------------------------------------------------------------------------------------------------
+
+	Step 3:
+
+		Ao arastar e soltar a imagem, ela se abre em nova guia. (Apenas fica esverdeado a área, mas não imbuí.) -> ✅ -> 🆗
+		Funcionando ao clicar, selecionar e confirmar. -> ✅ -> 🆗
+
+
+	----------------------------------------------------------------------------------------------------
+
+	Step 4:
+		Categoria: Impressão sublimática. -> ✅ (Rebonato vai tentar controlar o deposito com isso) -> 🆗
+			(col)Deposito -> ✅ (Rebonato vai tentar controlar o deposito com isso) -> 🆗
+				Esse campo existe para Serviços? -> ✅ (Rebonato vai tentar controlar o deposito com isso) -> 🆗
+
+
+		Categoria: camiseta -> ✅ (São coisas totalmente diferente) -> 🆗
+			(col)Preço de compra UN. -> ✅ (São coisas totalmente diferente) -> 🆗
+				Recuperar o preço já informado na step 1! O value deve seguir preenchido, conforme a (col)Quantidade. -> ✅ (São coisas totalmente diferente) -> 🆗
+				(Confirmar isso com o rebonnas)
+
+		Categoria: Tinta sublimática
+			(col)Depósito -> ✅ (Teste local funcionou normalmente)
+				Criei o depósito "Insumos" e "Depósito de insumos" e não atualizou a select, conforme haviam atualizados nos cadastros anteriores.. -> ✅
+				(Isso aconteceu ..) -> ✅
+
+
+	----------------------------------------------------------------------------------------------------
+
+	Step 5:
+
+		(col)Grupo de produtos -> -> ✅ -> 🆗
+			(MODAL)Bug encontrado após deletar um grupo existente! -> ✅ -> 🆗
+				~> A div não atualiza, pode fechar e abrir a modal novamente que vai continuar com a div de edição aberta, agora sem nenhum grupo especiicado' Deve-se atualziar para a inicial. -> ✅ -> 🆗
+				(Ocultando as opções de Grupo selecionado) -> ✅ -> 🆗
+
+				Ainda nisso, descobri assim: -> ✅ -> 🆗
+					Criei um grupo (quando não havia nenhum outro), -> ✅ -> 🆗
+					nomeei: "Camisetas - ONE" -> ✅ -> 🆗
+					Tudo certo, quando selecionei o grupo recém criado (<select> na div da esquerda); -> ✅ -> 🆗
+					ela ofereceu a opção de "Atribuir sub grupo" e aí pensei, ora posso especificar "ONE" como um sub grupo de "Camiseta" e daí eu excluí "Camiseta - ONE". -> ✅ -> 🆗
+
+					Nisso aconteceu de não atualizar a div da esquerda. -> ✅ -> 🆗
+
+					Fui criar um novo grupo, então chamando de apenas "Camiseta", a div da esquerda já selecionou o grupo "Camiseta - ONE" que eu haviadeletado momentos antes; -> ✅ -> 🆗
+					resolvi excluir para ver o comportamento e a notificação de erro apareceu no canto superiro direito! Então creio que seja só um erro de cache? -> ✅ -> 🆗
+
+					Na <select> ainda existe a option "Camiseta - ONE" que fora deletada, por isso penso ser o cache. -> ✅ -> 🆗
+						(medo é rodar um F5 e perder os steps anteriores.) -> ✅ -> 🆗
+
+					// Tem que ter um refresh aqui, nessa modal. Seja nos botões de ação do grupo selecionado ou seja separado. -> ✅ -> 🆗
+
+					~> Quando criei um novo grupo de nome "Delício" o comportamento da div esquerda meio que voltou: -> ✅ -> 🆗
+						A <select> agora lista as opções que existem: "Camiseta" e "Delício" porém ainda visível sem qualquer seleção das options a área de "Grupo de produtos selecionado" trazendo os btoões de ações visíveis junto ao seu container. -> ✅ -> 🆗
+						(complementando a necessidade) -> ✅ -> 🆗
+						
+					🎈 @FIX TESTE: 
+						Único erro que notei agora, é quando o Grupo recebe um edit em seu nome e é submetido, ele não atualiza a coluna da esquerda <select>, permanecendo o antigo nome do grupo.
+							Aparentemente, ter editado o nome desse grupo, ao fechar a modal e selecionar um grupo para o item, ele caducou a lista
+							::PRINT:: https://prnt.sc/dpgF491aWMSd
+							|-------|-> https://prnt.sc/gFk7Ky2QV9KQ (A array tá puxando com o nome antigo (antes do edit)?
+						
+						(No mais, estão todos OK. 🎈)
+
+				Ainda nessa modal: -> ✅ -> 🆗
+					[LAYOUT] Quando um grupo é selecionado, quando um sub grupo for atribuído: -> ✅
+						A coluna "Criar um novo grupo" deve sair e a "Atribuindo Sub Grupo" assume seu lugar. -> ✅
+						Ao "Cancelar" ou "Incluir ao grupo de produtos" ela deve retornar a ser oculta e trazer novamente de volta a div de cadastro. -> ✅ -> 🆗
+				//
+
+			Ainda em: (col)Grupo de produtos -> ✅ -> 🆗
+				Sub-Grupos devem existir concatenados como uma opção. -> ✅ -> 🆗
+				EXEMPLO: Grupo "Camiseta" possui um sub-grupo: "ONE", a select deve listar o grupo(sub grupo): "CAMISETA ONE" -> ✅ -> 🆗
+
+				Não estão sendo listados os sub grupos.. eles existem para que haja uma especificação de um grupo que deva ser variado. //Zz -> ✅ -> 🆗
+
+
+	----------------------------------------------------------------------------------------------------
+
+	Step 6:
+
+		- Nome do fornecedor não está sendo listado. -> ✅ -> 🆗
+
+		- Ao concluir e apresentar campos obrigatórios não preenchidos, deve-se ao menos guiar o formulário para o step do primeiro campo não preenchido para que possa seguir corrigindo. -> ✅ -> 🆗
+			(apenas é listado os campos que não foram preenchidos) -> ✅ -> 🆗
+
+			Comentário: Eu vou criar uma classe ".error" para que o ícone do Step fique vermelho e guie melhor esse processo.->🚫
+			(.pontoRefMarcador.error) -> isso já pode ser inserido na fix!)->🚫
+
+		Existem correções que devem ser aplicadas no visual, já prontas. -> ✅ -> 🆗
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+/vendedor/orcamento-initial
+
+	{
+		Orçamento 1/3 -> ⚠️ (O Saldo fica em espera para ser concluido pelo financeiro)
+			(col)Saldo -> ⚠️ (O Saldo fica em espera para ser concluido pelo financeiro)
+				{add saldo} -> ⚠️ (O Saldo fica em espera para ser concluido pelo financeiro)
+					Gerei corretamente um QrCode de R$3,00 e realizei o pagamento pix; -> ⚠️ (O Saldo fica em espera para ser concluido pelo financeiro)
+					porém quando eu confirmei, aparentemente o saldo caducou. Não exibe os R$3,00 disponíveis na coluna. -> ⚠️ (O Saldo fica em espera para ser concluido pelo financeiro)
+	} -> 🆗
+
+	----------------------------------------------------------------------------------------------------
+
+	Orçamento 2/3
+		Imagem dos produtos não estão sendo exibidas. -> ✅ -> 🆗
+		Imagem do Cliente não está sendo exibida. -> ✅ -> 🆗
+
+		Filtro do cabeçalho -> ✅ (Era por que o unico submit na tela era o carregamento da pagina novamente, mas foi corrigido adicionando um submit no form de busca) -> 🆗
+			{
+				(col)Procurar por um produto ou código -> -> ✅ (Era por que o unico submit na tela era o carregamento da pagina novamente, mas foi corrigido adicionando um submit no form de busca)
+					Ao confirmar com Enter ou toque no botão lupa, a página recarrega, mas funciona corretamente se não submeter (ele busca, desde que não confirme a regra de busca?) -> ✅ (Era por que o unico submit na tela era o carregamento da pagina novamente, mas foi corrigido adicionando um submit no form de busca)
+			} -> ⚠️🎈 busquei por "Tinta" ou "Camiseta" ele lista todos os produtos disponíveis..
+					o SUBMIT está no "Refersh" e não no botão da lupa que força o reload da página?!
+					PRINT: https://prnt.sc/bufBTqpZfRMy
+				
+
+			{
+				(col)Categoria -> ✅ (Teve Mudanças significativas no codigo, podendo ter melhorado a fluidez da modal)
+					Funcionando bem! Porém quando escolher uma categoria que não tiver itens disponíveis, é notificado corretamente de que não possui itens nessa categoria; -> ✅
+					OBS: Isso faz com que a modal de edição dos itens para adição no carrinho, não funcionem. (Botões "Definir" deixam de funcionar) -> ✅
+			} -> 🆗
+
+			(Os demais filtros estão funcionando corretamente)
+
+		Meu carrinho I want to know how far my wizard will go. Wizahar
+
+			{
+				Adicionei um item ao carrinho: Tinta sublimática - Linha T-74; -> ✅
+				Editei o item e apliquei desconto em R$ de R$20,00 (Valor que cadastrei foi de R$70,00) - (Não aplica o desconto da modal); -> ✅
+				Apliquei e quando verifiquei os valores do carrinho, estavam todos nos valores iniciais. -> ✅
+					-Depois que sofri o erro de redireção da rota (descrito na linha: 170) os R$20,00 de desconto foram aplicados quando inseri novamente o item no carrinho /Zz -> ✅
+			} -> ⚠️🎈 Não está sendo aplicado o desconto..
+					  PRINT: https://prnt.sc/Vdp07JIpgZ36 ~> https://prnt.sc/sY2O5-vSycZg
+					  
+			
+			(O obtão de desconto geral do carrinho, não está habilitado para teste) -> ✅ -> 🆗
+				O botão de desconto geral -> ⚠️🎈 aplicou o valor que eu defini (R$20,00) e retornou o valor total do carrinho em R$50,00 (o mesmo item testado) porém ao confirmar o pedido não constou o desconto!
+				PRINT: https://prnt.sc/w3ADq7Qchq12 ~> https://prnt.sc/DWMMZCzXdUjw
+			
+
+			Na confirmação do pedido, seguiu sem as alterações de desconto informadas @edit mas voltaram após o reload (informado na linha: 170). -> ✅ -> 🆗
+				Saldo na carteira -> continuou zerado (embora eu depositei 3 reau, tudo que eu tivu no banco! O que é melhor do que não ter saldo algum) -> ✅ -> 🆗
+
+				Copiar orçamento -> não faz nada' -> ✅ ( so funciona ate o momento em categorias de item 1,2 e 3 por enquanto a camiseta nao tem nada referente pois precisa falr com rebonatto) -> 🆗
+
+				Editar orçamento -> da reload na rota para /admin ... -> ✅ ( falta verificar os descontos) -> ⚠️🆗
+
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	~ 16/09/24 Continuando testes .. rota: vendedor/orcamento-middle/
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	Grade de exibição dos items:-> ✅ -> ⚠️🆗
+		Impressão sublimática está caducando suas opções "Definir qualidade", deixando de exibir as options:-> ✅ -> ⚠️🎈
+			{ -> ⚠️🎈 Erro persiste
+						PRINT: https://prnt.sc/3sm2SqhL5V4Q
+			}
+			
+			Premium, Clássica e Econômica-> ✅ -> 🆗
+			(que foram definidas ao cadastrar o produto) e que servem para obter o valor final do item de acordo com essas options. Carregando consigo o valor final "0". -> ⚠️ (Falta corrigir) -> ⚠️🆗
+
+			O mesmo acontece com a edição do item uma vez inserido no carrinho (editar diretamente do carrinho) também está caducando as options em "Definir qualidade" e retornando seu valor em 0.
+
+			PRINT: https://prnt.sc/muUS90fFXYsA
+
+	............................................................................................................
+
+	Meu carrinho:-> ✅
+		NENHUM item pode ser inserido no carrinho com uma quantidade NULA===0! Seu mula! Aplica a contagem em 1 e não 0, nubnubnubnub viadoviadoviado pélapélaparei-> ✅ -> ⚠️🎈
+			{ -> ⚠️🎈 A contagem ainda inicia em 0. (a quantidade minima é 1...)
+				PRINT: https://prnt.sc/BTrIBpAefg1L
+			}
+
+		Itens que recebem mais que UMA unidade, deve-se apresentar como o tanto de itens desse mesmo tipo existem no carrinho.-> ✅ -> ⚠️🎈
+			Erro meu Jorel, por hora pode usar "1x, 2X, 3x" no nome do produto mas o certo é trazer uma tag.-> ✅ -> ⚠️🎈
+				Caso queira inserir a tag, jogue dentro do-> ✅ -> ⚠️🎈
+			
+			{ -> ⚠️🎈 Não concatenaram os tipos iguais (2x, 3x..)
+				 PRINT: https://prnt.sc/sgSwgX4z1xcF
+			}
+
+	............................................................................................................
+
+	Desconto:
+		Modal desconto (Geral do Meu Carinho) pode existir um botão de "Resetar desconto" para remover o efeito /Zz -> ⚠️ ( e so limpar o carrinho e add denovo ???) 
+		{ -> ⚠️🎈 Não, apenas remove o desconto geral, os itens permanecem. }
+
+		Botão "DESCONTO" que chama a modal de aplicar desconto (tanto individual, quanto desconto geral no carrinho nesse caso), -> ⚠️ ( e so limpar o carrinho e add denovo ???) 
+		{ -> ⚠️🎈 PRINT: https://prnt.sc/JrkRcv_wZcAP ~> Apenas um botão que remove o  desconto, jhow }
+
+		a opção "Percentual" está lidando com valores numéricos particionados .. deve-se comportar como porcentagem (talvez apenas no visual?)-> ✅ -> 🆗
+			Apenas para não ficar confuso pois o valor: "10,00" refere-se a 10%" e isso ja é funcional.-> ✅ -> 🆗
+
+		{ -> ⚠️🎈 Isso não foi resolvido
+			Quando outro item é anexado ao carrinho, após aplicar o desconto geral em "Meu carrinho" os valores retomam sua origem, embora ainda exiba a porcentagem do desconto o total se dá sem a aplicação (ao menos visual) desse desconto.
+				Sendo obrigado a aplicação novamente do desconto referente. -> ⚠️ ( corrigir depois)
+
+				(Acho que seria um comportamento normal, mas deve-se forçar que qualquer novo item a ser inserido respeite a regra do desconto geral aplicado uma vez. Tendo em vista que ele exibe o desconto e não aplica por ter um novo registro inserido, esse novo registro deve seguir a regra existente. precisa validar isso)
+			-------------------------------------------------- Re-teste:
+				PRINT: https://prnt.sc/sPNYSUYB6ueo
+		}
+
+		PRINT: https://prnt.sc/DvGc8w5wVFI- -> ⚠️ ( corrigir depois) -> 🆗🎈
+
+		Então eu removi o que se teve valor em "0" (explicado na linha: 177) -> ⚠️ ( corrigir depois) -> 🆗🎈
+			PRINT: https://prnt.sc/sKvjzoeWlh4Q -> ⚠️ ( corrigir depois) -> 🆗🎈
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+	Rota: vendedor/finaliza-orcamento/
+	Orçamento 3/3 (Pagamento)
+
+		Col.Esquerda
+
+			{ -> ⚠️🎈 Nada mudou, ao "salvar alterações" e dar um "F5" a observação some. (//Não carece nova print)
+				Obsrvação-> ✅
+					As observações quando compostas, não estão sendo aplicadas.-> ✅
+					PRINT 1: https://prnt.sc/WqZpY4f8HwmX-> ✅
+							 Note que: Print 1 contém SALVO uma observação descrita.-> ✅
+							 (perceba que o botão salvar já é o de concluir)-> ✅
+					PRINT 2: https://prnt.sc/92sQk8XXyjcK
+							 Note que: Print 2 é o "reload" da página=Pedido após essa observação existir e ter sido slava.-> ✅
+							 (Nada aconteceu.)
+			}
+
+			Arquivos anexados ->-> ✅
+				Os itens estão recebendo uma identificação na contagem, um tanto estranha...-> ✅ -> 🆗
+				Inicie uma contagem de acordo com o número de itens existentes no pedido.-> ✅ -> 🆗
+				(à partir de 1, pelo amor do zero.)-> ✅ -> 🆗
+
+				PRINT: vendedor/finaliza-orcamento/
+
+				~Em um outro teste: pedido(11)-> ✅ -> 🆗 ~> ⚠️🎈
+					Inseri ao carrinho um serviço: Impressão DTF e não anexei uma imagem,-> ⚠️🎈
+					quando fui carregar a imagem na rota atual: (desse tópico)-> ️⚠️🎈
+						1 - Selecionei o item -> ⚠️🎈
+						2 - Cliquei na área de anexar -> ⚠️🎈
+						3 - Selecionei uma img.jpg -> ⚠️🎈
+						4 - Não aconteceu o esperado resultando a print. -> ⚠️🎈
+
+						PRINT: https://prnt.sc/D4ZB0d6Yx_pv -> ⚠️🎈
+
+					Conferir, sei que isso já estava funcional. -> ✅ -> 🆗 ~> ⚠️🎈
+						⚠️🎈 -> (aproveitando o tópico) aparentemente o "Selecionar arquivos" deixou de funcionar com o Clique->Seleção->Abrir
+							PRINT: https://prnt.sc/RTuC18Xt3JhK , https://prnt.sc/w9gt5OgiiqAF
+
+
+
+		Col.Direita
+
+			Pagamento parcial -> Marcado(checked) -> ⚠️ ( nao entendi)
+				O fluxo dele seria preencher o valor de entrada e então prosseguir para a opção de pagamento.
+
+				Opção de pagamento: ->⚠️ ( link de pagamento nao é PIX e diferente)
+					PIX (Link de pagamento) //Verificar isso com rebonnas (pablin) ->⚠️ ( link de pagamento nao é PIX e diferente)
+						Quando marcado, nada ainda acontece. Verificar a chamada da área pix. //Zz ->⚠️ ( link de pagamento nao é PIX e diferente)
+
+					// Conferir o funcionamento dos rádios.
+
+			Anexar o comprovante ->-> ✅ -> 🆗
+				Está sendo exibido, atentar na aparição apenas quando a opção for selecionada'-> ✅ -> 🆗
+				PRINT: https://prnt.sc/Qt-symru-t1B-> ✅ -> 🆗
+
+					Fluxo que solicitaria um comprovante:-> ✅ -> 🆗
+						- Pagamento parcial-> ✅ -> 🆗
+						- Link de pagamento-> ✅ -> 🆗
+
+						Não sendo nenhum desses marcados, não há necessidade de renderizar a dita cuja. //-> ✅ -> 🆗
+
+
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+	Rota: /finance  ->⚠️✅ (testa para mim quando tiver 2 tipos de itens no carrinho diferente, por exemplo camiseta e um dtf, quero ver o que acontece, pois geralmente esse item nao pode ser finalizado e so levado para produção por conta do dtf)
+	Quadro de gestão dos pedidos
+
+		Tenho muito que inserir um campo de horário nisso! Tá ficando confuso o consumo errado de tantos testes.-> ✅ -> 🆗
+			Isso em produção é um problema real! Então seria bom começar a pensar em um lugar de alterações e outro de uma exibição final que seja sempre recíproco a última das alterações existentes.-> ✅ -> 🆗
+
+
+		Nota e observações sobre os pedidos que serão sujeitos a cobranças:: ->⚠️ (TENDI FOI E NOTHING)
+			Nenhum item pode ser inferior que uma unidade.: ->⚠️ (TENDI FOI E NOTHING)
+			Nenhum item que deva conter anexo pode subir sem a existência desse anexo.: ->⚠️ (TENDI FOI E NOTHING)
+
+			(Essas verificações, deverão impedir que o pedido vá para a tabela do financeiro. Exigindo que sejam corrigidos os processos e nada possa ser cobrado com erro'): ->⚠️ (TENDI FOI E NOTHING)
+
+		TABELA Geral dos pedidos: -> ✅
+			Col.Ação: -> ✅
+				Detalhes ->
+					1 - Data de pagamento, está sendo preenchida... Sendo que não houve o pagamento.-> ✅ -> 🆗
+						(Embora gostei da piada, "01/01/1970" HAHA)-> ✅ -> 🆗
+
+					2 - Informamos que um pagamento pode ser parcial, -> ⚠️ -> 🆗 [DISPOSIÇÃO Dev.RELEASE 2 por REVISÃO]
+						porém não informo o quanto teve de entrada e se essa entrada foi paga ou quantas parcelas seriam e etc. os detalhes de parcialidade devem existir.
+						//Conversar com rebonnas (Desculpe, foi uma falha minha!! Excedendo a v1.)
+
+					3 - Tempo de trabalho, não sei se cabe essa linha aqui, eu imagino que antecipe a produção.. por essas ela já nem preenche nada né? -> ⚠️ -> 🆗 
+					((alias trocar a url rrsrs) - Pior que nao preenche nada mesmo, acho que esse controle sairia de controle capaz, e ja existe a pagina do cliente que ele consegue olhar como está a produção) -> 🆗
+
+					4 - Se não existe uma imagem anexada a um pedido, e esse pedido contém um item que deveria carregar ao menos UMA imagem junto ao item... (volte à linha: 287.)-> ⚠️ -> 🎈(!) 
+					(Acho que preciso refazer ou olhar mais a fundo, por que tem alguns orcamentos com arquivo e nao mostrou, vou Deixar pro final) - (Pode ter pedidos como camiseta sem imagem, o so com layout mesmo do desenho imagino) -> 🆗
+
+					//
+				Editar -> ✅
+					Deve herdar o comportamento descrito aos detalhes. -> ✅ -> 🆗
+
+        Finalizar -> ✅
+					Tá 99%! Faltou só ele atualizar o Status -> ✅ -> 🆗
+							(Acho que o cache ou o tempo de resposta deu uma tiltada e meio que aplicou o status de pagamento com um reload da tela um tempo depois//F5) -> ✅ -> 🆗
+
+		//TABELA
+	//finance
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+	Vou dar um pause no relatório.
+	Por favor, quando estiver pra iniciar as fixes de /finance (seguindo a ordem de relatos, se alterar o fluxo de fixes faça seu julgamento de tempo (0 à 100) sobre a conclusão pra que eu tenha uns 30% desse tempo de trazer a continuação dos testes e não te sobre-carregar. ;*
+
+	Faça-me o favor, via de mão drupaa!
+
+	16-09-24 							17:05 - Pablo
+	(24)25-09-24  						18:26 - Joreel
+	1ª Revisão pós fix:
+	26-09-2024							16:11 - Pablo
+	06-10-2024 (Encaminhado ao joreel)	21:08 - Pablo (Domingo)
+

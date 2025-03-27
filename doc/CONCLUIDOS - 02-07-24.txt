@@ -1,0 +1,166 @@
+Login -> ✅ (Concluído so mudei a forma de login para LocalStorage)
+_ Redução do tempo de login -> ✅
+_ Aumento da SESSION_TIME (Permanecer logado por um tempo maior ~ Pelomenos umas 8Horas autenticado na sessão.)-> ✅
+_ Caso a Sessão estiver Valida ao entrar na pagina de login (recarregar a pagina para o dashboard) -> ✅
+
+[ INVENTÁRIO ] -> ✅
+	Cadastro de itens: -> ✅
+		Campo "Unidade" step: 1 -> ✅
+        - Campo Unidade ser disabled com valor 1: para uma unidade de item -> ✅
+			  Definir qual o tipo de unidade esse campo recebe; -> ✅
+
+			Dos campos obrigatórios e adicionais fixes:
+				Step 1 -> ✅
+					*Todos os campos obrigatórios*  -> ✅
+				Step 2 -> ✅
+					* Produção,-> ✅
+					* Departamento-> ✅
+          * DATA DE VALIDADE (nao é obrigatório) porém adicionar a data com 2 anos de validade
+				Step 3 -> ✅
+				  * Imagens-> ✅
+				Step 4 ->
+				  * Minimo,-> ✅
+				  * Máximo,-> ✅
+				  * Depósito-> ✅ (??????????????) (Armazem/Estoque ~Aqui deve ter uma gestão para haver mais setores dentro do estoque. Vamos criar a tela para gerir isso//)
+				  * Quantidade-> ✅ (Alterar <label> para "Quantidade EM estoque"),
+				  * Preço de compra UN.-> ✅
+				  * Custo de compra UN.-> ✅
+				  * Fornecedor -> ✅
+						Fazer funcionar a modal de cadastrar e gerir os fornecedores.-> ✅
+
+        Step 5 -> -> ✅
+					Nenhum campo obrigatório -> ✅
+            - TIPO DO ITEM: (nao obrigatório)
+            - Gerir grupo de produtos: (não obrigatório)
+
+				Step 6 -> ✅
+					Campo "Item disponível" deve ser habilitado por padrão (True default). -> ✅
+
+  Visualização de Inventário -> ✅ (Olha denovo)
+		Deve-se re-alocar o componente www/finances/stock para a rota: www/vendedor/lista-produto (As duas rotas deverão permanecer!) -> ✅
+
+		Posterior -> ✅
+
+		[VISUAL]-> ✅
+			Fix largura da tabela, COL.Nome deve receber flex-wrap;-> ✅
+
+		[VISUAL]-> ✅
+			Fix dos botões, altura dos btn.del/print/new-> ✅
+		[VISUAL/FUNC]-> ✅
+			Add Botões de controle às linhas da tabela (Del/Print)-> ✅
+
+		Fix funcionalidades():
+			Botão.del -> ✅
+				visível apenas quando algum item da tabela estiver selecionado;-> ✅
+			Botão.print -> ✅
+				visível apenas quando algum item da tabela estiver selecionado;-> ✅
+			Botão.New ->-> ✅
+				linkar para a página de Cadastrar Produtos-> ✅
+
+[GER. VENDAS]
+	Frente de caixa 1/3 (Selecioanr/Cad. cliente) ->
+		Fix -> ✅
+			Pesquisa não está funcionando,-> ✅ (100% hj -> ✅)
+				(Nome do cliente, Nome da empresa, Whatsapp, CNPJ)-> ✅
+			ADD botão de "Adicionar saldo na carteira" na coluna "SALDO" (Fazer funcionar a modal)-> ✅
+
+
+	Frente de Caixa 2/3 (Selecionar produto/Carrinho) ->
+		Fix -> ✅
+      - Modal de adicionar item no carrinho-> ✅
+       - Ao selecionar medida Mostrar a quantidade de item no estoque:-> ✅
+          - se tiver 0 (desabilitar a linha do Tamanho especifico)-> ✅
+
+
+			Pesquisar produtos não está funcionando.-> ✅
+				(Nome, Código do produto)-> ✅
+
+			Fix -> ✅
+				Campo "Definir quantidade" deve aceitar vírgulas (Modal do item);-> ✅
+					Definir quantidade em itens que for "Serviço" essa quantidade deve seguir como "Metro"-> ✅
+
+
+				Quando aplica desconto diretamente no produto, o carrinho some e não insere nada nele; -> ✅
+					Quando o "Desconto" for informado, adicionar uma tag no item, dentro do carrinho para informar que o desconto foi aplicado ao item! -> ✅(Foi adicionado um label novo com desconto)
+
+				Quando o modal de "Desconto" for executado e aplicado um desconto geral no valor do carrinho, adicionar uma tag em todos os itens que ele afetou, -> ✅(Foi adicionado um label novo com desconto)
+        a modal deve-se fechar sozinha após a "Aplicação do desconto"; -> ✅
+
+        Ao Adicionar um produto do tipo serviço (DTF e etc) o calculo no valor final está dando (NaN -> erro de numero de item)
+
+        Modal de add produto no carrinho: -> ✅
+          - Bug ao clicar no input de desconto e logo em seguida em adicionar o produto no carrinho, ele vai entender como se tivesse aplicado o desconto; -> ✅
+          - Bug ao adicionar um valor no desconto e depois remove-lo, no carrinho o item vai ficar como se tivesse desconto nele: -> ✅
+
+        Corrigir erro no calculo do carrinho, por exemplo numeros como esse (R$ 0,25) tem somo errada, -> ✅
+          - E numeros como (30,25) a soma está tranquilo -> ✅
+      ADD ->
+        Adicionar um botão para editar o orçmaneto na tela de conferir pedido (so refreshar a tela) -> ✅
+
+
+		PRÉ-VISUALIZAR ORÇAMENTO -> ✅
+			Fix -> ✅
+				Aplicar o novo design de "Adicionado ao Carrinho" -> ✅
+
+			[VISUAL] -> ✅
+				Alterar o card do meio para que ele cubra a coluna esquerda que foi removida,-> ✅
+					Alterar altura para que se mantenha alinhada ao bottom da coluna esquerda.-> ✅
+
+  Frente de Caixa 3/3 (Orçamento) ->
+
+    Fix -> -> ✅
+			Botão: Add saldo na carteira -> ✅
+				Fazer funcionar. -> ✅
+
+			Status:
+    		Calcula-se 50% do valor e o valor é alterado para isso, o pedido pode ganhar uma TAG de "PARCIAL" -> ✅
+							Essa tag entra nas telas:
+								Ger. Vendas -> Pedidos -> ✅
+								Financeiro -> Quadro administrativo -> ✅
+								E dashboard financeiro -> ✅
+				Influencia no valor gerado PIX e no status do pedido em relação ao financeiro. Também influencia na *mensagem da expedição*.
+
+				Verificar os cálculos, com atenção na soma do total, considerando os descontos aplicados em itens e/ou no carrinho inteiro -> ✅
+        (São diferentes descontos, atentar-se as "%" ou "R$") enfase: Se o item recebe desconto, o carrinho não pdoe obter (e visse versa); -> ✅
+
+				Antes do rádio "Dinheiro" deve adicioanr um novo rádio para "Pagamento parcial" -> (possivelmente uma coluna nova no orçamento) -> ✅
+					Quando esse campo for selecionado: -> ✅
+
+        Adicionar novo campo "rádio" abaixo de "Cartão de crédito" para os pagamentos que são efetuados na "retirada/entrega"
+					Campo: Pagamento na entrega -> ✅
+
+      	Pagamento PIX -> -> ✅
+				FIX -> -> ✅
+					Quando o PIX for validado, deve aparecer um indicativo de "Pago" ou enquanto isso permanece um "Loading" -> ✅
+          até que seja realizada a ação descrita. -> ✅
+
+			As informações de "Tarifas nas formas de pagamento via cartão" devem aparecer apenas quando os input#radio CARTÃO DEB/CRED forem selecionados. -> ✅
+
+//FIM [GER. Vendas]
+
+Financeiro -> ✅
+	Dashboard financeiro -> ✅
+		FIX -> ✅
+			- Quando for validação manual, quando alterar o "Status" para pago, ao salvar deve-se requerir uma confirmação da ação para finaliza-la -> ✅
+			- Atualizar a tabela para que ela não encontre-se visível para uma ação de finalização (ela já não estará mais a ponto de finalização) modal editar// -> ✅
+			  Data de pagamento default deve ser sempre o dia atual! -> ✅ Se a data do pagamento e sempre o dia atual, (NAO TEM HIPOTESE DISSO ESTAR VISIVEL E REDUNDANTE)
+      - Tabela não está atualizando (Corrigir isso) ->
+      - Caso estiver na pagina 2 e mudar o select de pesquisa zerar o numero das paginas -> ✅
+			- Alterar o status Default da tabela, para que não apareçam os "Status === PAGO" sem que seja uma escolha do opeador na select de Exibir por status.-> ✅
+
+	Contabilidade -> ✅
+		FIX -> ✅
+			- Ela permanece como é, mas deve trazer as FIXES impostas na rota: www/vendedor/lista-produto dessa lista.-> ✅
+      - Fechar Modal Contas a pagar ao finalizar a inserção: -> ✅
+      - Corrigir descrição das modal de acordo com a Tabela que foi clicado: -> ✅
+      - Corrigir descrição dos botões na tabela -> ✅
+      - Funcionalidades agora está tendo ação de deletar, selecionar varios, e criar -> ✅
+	Clientes cadastrados -> ✅
+		Em "Alterar Cliente" add:-> ✅
+			Endereço,-> ✅
+			Contatos (Responsáveis da empresa),-> ✅
+			Transportadora-> ✅
+
+	ROTA: www/finance/change-product/X-> ✅
+	Fix -> ✅
+		GET não funcional (Auto preenchimento do formulário, referente ao ID passado na url)-> ✅
